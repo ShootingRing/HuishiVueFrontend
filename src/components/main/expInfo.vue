@@ -1,0 +1,346 @@
+<template>
+  <div class="wrapper">
+      <!--        back button using absolute position-->
+      <el-button type="primary" @click="back"
+                 class="backButton"
+      >
+          <svg t="1681271515944"
+               class="icon"
+               viewBox="0 0 1024 1024"
+               version="1.1"
+               xmlns="http://www.w3.org/2000/svg"
+               p-id="1766"
+               width="18"
+               height="18">
+              <path d="M707.455023 62.05281c-17.407913 0-33.759831 6.463968-46.07977 18.175909L279.585162 431.874961c-18.04791 17.215914-28.255859 40.575797-28.255859 65.439672s10.207949 48.255759 28.639857 65.855671l381.374093 350.398248c24.639877 23.455883 67.551662 23.455883 92.159539 0 12.319938-11.743941 19.103904-27.263864 19.103905-43.839781s-6.783966-32.191839-19.103905-43.90378l-277.95061-262.590687c-18.527907-17.663912-28.735856-41.023795-28.735856-65.919671s10.207949-48.223759 28.639857-65.82367l278.110609-263.550683c12.255939-11.679942 19.039905-27.263864 19.039905-43.839781s-6.783966-32.159839-19.103905-43.87178a66.335668 66.335668 0 0 0-46.079769-18.175909z m0 931.739341a132.703336 132.703336 0 0 1-92.159539-36.383818l-52.319739-49.823751-328.542357-300.094499c-31.263844-29.759851-48.223759-68.735656-48.223759-110.17545s16.927915-80.383598 47.743761-109.695451L615.743481 35.97294a132.575337 132.575337 0 0 1 91.743542-35.99982c34.815826 0 67.551662 12.895936 92.127539 36.383818 24.639877 23.423883 38.175809 54.623727 38.175809 87.743561s-13.567932 64.351678-38.175809 87.775562l-278.11061 263.550682a30.07985 30.07985 0 0 0 0.064 43.839781l277.95061 262.590687c24.735876 23.551882 38.271809 54.751726 38.271809 87.87156s-13.567932 64.319678-38.175809 87.743562a132.895336 132.895336 0 0 1-92.127539 36.351818z" fill="#ffffff" p-id="1767"></path></svg>
+      </el-button>
+      <div class="main">
+
+          <!--        main content-->
+          <el-card class="box-card" shadow="hover">
+              <template #header>
+                  <div class="card-header">
+                      <span>{{item1.title}}</span>
+                  </div>
+              </template>
+              <div class="content">
+                  <div class="item">
+<!--                        <el-input v-model="item1.content.exp_id">-->
+<!--                            <template #prepend>-->
+<!--                                实验ID-->
+<!--                            </template>-->
+<!--                        </el-input>-->
+<!--                        <el-input v-model="item1.content.title">-->
+<!--                            <template #prepend>-->
+<!--                                实验标题-->
+<!--                            </template>-->
+<!--                        </el-input>-->
+<!--                        <el-input v-model="item1.content.chief">-->
+<!--                            <template #prepend>-->
+<!--                                实验组组长-->
+<!--                            </template>-->
+<!--                        </el-input>-->
+<!--                        <el-input v-model="item1.content.description"-->
+<!--                                  :autosize="{ minRows: 2, maxRows: 6 }"-->
+<!--                        >-->
+<!--                            <template #prepend>-->
+<!--                                描述-->
+<!--                            </template>-->
+<!--                        </el-input>-->
+<!--                        <div class="date">-->
+<!--                            <div>开始时间</div>-->
+<!--                            <el-date-picker v-model="item1.content.startTime"-->
+<!--                            >-->
+<!--                            </el-date-picker>-->
+<!--                        </div>-->
+<!--                        <div class="date">-->
+<!--                            <div>预计完成时间</div>-->
+<!--                            <el-date-picker v-model="item1.content.endTime"-->
+<!--                            >-->
+<!--                            </el-date-picker>-->
+<!--                        </div>-->
+<!--                        <el-input v-model="item1.content.status">-->
+<!--                            <template #prepend>-->
+<!--                                目前状态-->
+<!--                            </template>-->
+<!--                        </el-input>-->
+<!--                        <el-input v-model="item1.content.progress">-->
+<!--                            <template #prepend>-->
+<!--                                目前进度-->
+<!--                            </template>-->
+<!--                        </el-input>-->
+                      <div class="content2" v-html="item2.content">
+                      </div>
+                  </div>
+                  <div class="diagram">
+                      <el-progress type="dashboard" :percentage="item1.content.progress" class="progress">
+                          <span class="percentage-value">{{ item1.content.progress }}%</span>
+                          <span class="percentage-label" style="font-size: large">实验进度</span>
+                      </el-progress>
+                      <el-timeline>
+                          <el-timeline-item v-for="item in item1.content.timeline" :key="item.time">
+                              <el-card shadow="always">
+                                  <h4>{{item.content}}</h4>
+                                  <p>{{item.time}}</p>
+                              </el-card>
+                          </el-timeline-item>
+                      </el-timeline>
+                      <el-button type="primary">
+                          查看实验详情
+                      </el-button>
+                  </div>
+              </div>
+          </el-card>
+          <el-card class="box-card" shadow="hover">
+              <template #header>
+                  <div class="card-header">
+                      <span>{{item3.title}}</span>
+                  </div>
+              </template>
+              <div class="content3" v-html="item3.content">
+              </div>
+          </el-card>
+      </div>
+  </div>
+</template>
+
+<script setup>
+import { h, ref, shallowRef } from 'vue'
+
+const cards = ref([
+  {
+      title: '项目信息与进展',
+      content: {
+          exp_id: 1,
+          title: '慧识-安全人脸识别系统',
+          type: '智能AI',
+          chief: '张三',
+          description: '安全人脸识别系统',
+          startTime: '2021-01-01',
+          endTime: '2021-01-01',
+          status: '进行中',
+          progress: 78,
+          timeline: [
+              {
+                  time: '0% 2021-01-01',
+                  content: '开始',
+              },
+              {
+                  time: '37% 2021-05-01',
+                  content: '进展1',
+              },
+              {
+                  time: '78% 2021-09-21',
+                  content: '进展2',
+              },
+          ]
+      },
+  },
+  {
+      title: '项目信息',
+      content: '大数据的广泛应用改变了保险公司实现服务的方式。现有的保险业网站和软件通常收集了海量数据，蕴藏着大量有用信息，包括用户的个人信息、消费习惯等。只有充分利用保险业大数据，才能在风险定价、营销策略、风险管控等诸多方面适应大数据时代的要求。\n' +
+          '&nbsp&nbsp&nbsp&nbsp数据库系统中通常采用表格的方式存储数据，表格中会存在大量的关系数据和文本信息，存储的数据的格式也可以是多种多样的。比如，用户的个人简介通常在数据库中用文本字符串的形式进行存储，而用户的年龄和产品价格通常采用非负数字的形式进行存储。虽然当前的数据处理技术能对格式化的数字和类别等数值进行提取和匹配，但对文本等非结构化数据却无法提取出有用的特征信息。\n' +
+          '&nbsp&nbsp&nbsp&nbsp在保险业营销服务中，要么是让用户通过搜索获取保险产品进而购买，要么采用流行度推荐、关联规则推荐和协同过滤推荐等方法来给用户主动推荐保险产品。\n'
+  },
+  {
+      title: '相关科研成果',
+      content: '[1]Kehua Guo, Zhuo Zhang, Haifu Guo, Sheng Ren, Lei Wang, Xiaokang Zhou, Chao Liu. Video Super-Resolution Based on Inter-Frame Information Utilization for Intelligent Transportation. IEEE Transactions on Intelligent Transportation Systems, 2022, accepte and online. (Q1)\n' +
+          '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[2]Xiangyuan Zhu, Kehua Guo (通讯), Hui Fang, Rui Ding, Zheng Wu, Gerald Schaefer. Gradient-Based Graph Attention for Scene Text Image Super-Resolution. AAAI 2023, online. (CCF A)\n' +
+          '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[3]Sheng Ren, Kehua Guo(通讯), Xiaokang Zhou, Bin Hu, Feihong Zhu, Entao Luo. Medical Image Super-Resolution Based on Semantic Perception Transfer Learning .IEEE/ACM Transactions on Computational Biology and Bioinformatics, 2022, online, DOI 10.1109/TCBB.2022.3212343. (Q1)\n' +
+          '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[4]Rui Ding, Kehua Guo(通讯), Xiangyuan Zhu, Zheng Wu, Liwei Wang.ComGAN: Unsupervised disentanglement and segmentation via image composition. NeurIPS 2022, online.(CCF A)\n' +
+          '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[5]Kehua Guo, Changchun Shen, Bin Hu, Min Hu, Xiaoyan Kui. RSNet: Relation separation network for few-shot similar class recognition. IEEE Transactions on Multimedia, 2022, online, doi: 10.1109/TMM.2022.3168146.(Q1)\n'
+          +
+          '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[6]Kehua Guo, Changchun Shen, Xiaokang Zhou, Sheng Ren, Min Hu, Minxue Shen, Xiang Chen, Haifu Guo. Traffic data-empowered XGBoost-LSTM framework for infectious disease prediction. IEEE Transactions on Intelligent Transportation Systems, 2022, online, doi: 10.1109/TITS.2022.3172206.(Q1)\n'
+          +
+          '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[7]Kehua Guo, Tianyu Chen, Sheng Ren, Nan Li, Min Hu, Jian Kang. Federated learning empowered real-time medical data processing method for smart healthcare.IEEE/ACM Transactions on Computational Biology and Bioinformatics, 2022, online doi: 10.1109/TCBB.2022.3185395.(Q1)\n' +
+          '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[8]Kehua Guo, Feihong Zhu, Xiaokang Zhou, Lingyan Zhang, Yifei Wang, Jian Kang. LesionTalk: Core data extraction and multi-class lesion detection in IoT based intelligent healthcare. ACM Transactions on Sensor Networks, 2022, online,https://doi.org/10.1145/3526194.(Q2)\n' +
+          '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[9]Xiangyuan Zhu, Kehua Guo(通讯), Hui Fang, Liang Chen, Sheng Ren, Bin Hu. Cross view capture for stereo image super-resolution. IEEE Transactions on Multimedia, 2022, 24(5): 3074-3086.(Q1, 高被引)\n' +
+          '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[10]Kehua Guo, Min Hu, Sheng Ren, Fangfang Li, Jian Zhang, Haifu Guo, Xiaoyan Kui. Deep illumination-enhanced face super-resolution network for low-light images. ACM Transactions on Multimedia Computing, Communications and Applications, 2022, 18, Article 87: 1-19.(Q1)\n' +
+          '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[11]Xiangyuan Zhu, Kehua Guo(通讯), Sheng Ren, Bin Hu, Min Hu, Hui Fang. Lightweight image super-resolution with expectation-maximization attention mechanism. IEEE Transactions on Circuits and Systems for Video Technology, 2021, 32: 1273-1284.(Q1, 高被引)\n'
+  }
+])
+
+cards.value[1].content = cards.value[1].content.replace(/\n/g, '<br />')
+cards.value[2].content = cards.value[2].content.replace(/\n/g, '<br />')
+
+const item1 = ref(cards.value[0])
+const item2 = ref(cards.value[1])
+const item3 = ref(cards.value[2])
+
+const back = () => {
+  window.history.back()
+}
+</script>
+
+<style scoped lang="less">
+.wrapper {
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+
+  font-family: '楷体', sans-serif;
+}
+
+.main {
+  /*background-color: #f2f2f2;*/
+  width: 85%;
+  height: 85%;
+
+  margin-top:5%;
+  margin-left: 10%;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 2% 2%;
+
+  position: relative;
+  overflow: auto;
+}
+
+.box-card {
+background-color: rgba(0, 0, 0, 0.05);
+height: 53%;
+
+color: white;
+overflow: hidden;
+
+.card-header {
+    font-size: 28px;
+}
+
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: 1fr 10fr;
+}
+
+.box-card:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+  box-shadow: #646cff 0 0 10px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2%;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 5%;
+
+  .date {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+.diagram {
+  //margin-right: 10px;
+  .progress {
+      color: white;
+      margin-left: 50px;
+      .percentage-value {
+          display: block;
+          margin-top: 10px;
+          font-size: 28px;
+          color: white;
+      }
+      .percentage-label {
+          display: block;
+          margin-top: 10px;
+          font-size: 12px;
+
+          color: white;
+      }
+  }
+
+  .el-timeline {
+    margin-right: 15px;
+      .el-card {
+          //background-color: #0D66E4;
+          height: 110px;
+          background-color: rgba(0, 0, 0, 0.05);
+          border: rgba(255, 255, 255, 0.8) 1px solid;
+          box-shadow: #646cff 0 0 10px;
+          color: white;
+          h4 {
+              font-size: 23px;
+          }
+          p {
+              font-size: 16px;
+          }
+      }
+
+  }
+
+.el-button {
+  background-color: #0D66E4;
+  border: rgba(255, 255, 255, 0.8) 1px solid;
+  box-shadow: #646cff 0 0 10px;
+  color: white;
+  font-size: 16px;
+
+  margin-left: 60px;
+}
+
+.el-button:hover {
+  background-color: #0D66E4;
+  border: rgba(255, 255, 255, 0.8) 1px solid;
+  box-shadow: #646cff 0 0 10px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+
+  margin-left: 60px;
+}
+}
+
+.id {
+  width: 20%;
+}
+
+.content2 {
+  padding-left: 5px;
+
+  text-align: left;
+  text-indent: 2em;
+
+  line-height: 1.6em;
+
+  font-size: 18px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow-y: scroll;
+}
+
+.item2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 12%;
+}
+
+.content3 {
+text-align: left;
+text-indent: 2em;
+
+font-size: 16px;
+font-family: Calibri, sans-serif;
+
+height: 50%;
+
+overflow: scroll;
+}
+
+.backButton {
+  position: absolute;
+  left: 60px;
+  z-index: 9999;
+}
+</style>
