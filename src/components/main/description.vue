@@ -80,7 +80,6 @@
   /*background-color: #f2f2f2;*/
   width: 100%;
   height: 100%;
-  margin-top: 8%;
   display: flex;
 }
 
@@ -89,29 +88,6 @@
   height: 100%;
   flex-direction: column;
 
-  .header {
-    width: 100%;
-    height: 30%;
-    padding-left: 90px;
-    padding-right: 96px;
-    display: flex;
-    position: relative;
-    justify-content: start;
-    align-items: flex-end;
-    background: url(../../assets/imgs/header/mountain.jpg) no-repeat
-      center/cover;
-
-    .demonstration {
-      color: #fff;
-      box-sizing: border-box;
-      display: block;
-      z-index: 10;
-      font-family: Montserrat, sans-serif;
-      font-weight: 700;
-      font-size: 4vw;
-      line-height: 5.5vw;
-    }
-  }
   .header {
     margin-right: 10em;
   }

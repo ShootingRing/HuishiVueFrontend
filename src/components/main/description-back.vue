@@ -62,8 +62,7 @@
   /*background-color: #f2f2f2;*/
     width: 100%;
     height: 100%;
-  
-    margin-top:8%;
+
   
     display: flex;
     justify-content: center;
@@ -77,7 +76,6 @@
     justify-content: center;
     align-items: center;
   
-    margin-top: 5%;
     margin-bottom: 5%;
   
     position: relative;

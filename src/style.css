@@ -310,3 +310,27 @@ h2 {
   line-height: 5.5vw;
   z-index: 10
 }
+
+.header {
+  width: 100%;
+  height: 30%;
+  padding-left: 90px;
+  padding-right: 96px;
+  display: flex;
+  position: relative;
+  justify-content: start;
+  align-items: flex-end;
+  background: url(src/assets/imgs/header/mountain.jpg) no-repeat
+    center/cover;
+}
+
+.demonstration {
+  color: #fff;
+  box-sizing: border-box;
+  display: block;
+  z-index: 10;
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+  font-size: 4vw;
+  line-height: 5.5vw;
+}

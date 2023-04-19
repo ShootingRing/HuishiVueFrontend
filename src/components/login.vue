@@ -124,7 +124,7 @@ const submit = () => {
 
       // const {data: res} = await axios.post('https://www.fastmock.site/mock/9765791af97387b52694903045766590/app/login', loginFormData)
     // const {data: res} = await axios.post('http://localhost:8000/login', loginFormData)
-    await axios.post('http://localhost:8000/login', loginFormData).then(response => {
+    await axios.post('http://localhost:8000/users/login', loginFormData).then(response => {
       console.log(response)
       console.log(response.data.code)
       const code = response.data.code

@@ -25,9 +25,9 @@
                 active-text-color="#13B5B1"
                 @select="handleSelect"
             >
-            <el-menu-item index="1" class="logo-in-aside">
-            <img class="title_logo" src="src/assets/imgs/Title/Title_font1.png"  alt="title"/>
-            </el-menu-item>
+              <el-menu-item index="1" class="logo-in-aside">
+               <img class="title_logo" src="src/assets/imgs/Title/Title_font1.png"  alt="title"/>
+              </el-menu-item>
               <el-menu-item index="2">
                 <img src="src/icons/svg/introduce_hover.svg" alt="introduce" class="svg-icon" v-if="isHovering" />
                 <img src="src/icons/svg/introduce.svg" alt="introduce" class="svg-icon" v-else />
@@ -82,9 +82,6 @@
 
 <script setup>
   import { ref, defineEmits } from 'vue'
-  import { MenuUnfoldOutlined, MenuFoldOutlined } from '@vicons/antd'
-  import { TextDescription20Regular , BookInformation24Regular} from '@vicons/fluent'
-  import { GuiManagement, UserProfileAlt, Logout, ScanAlt, Locked } from '@vicons/carbon'
   import router from "~/router/index.js"
   import { ElMessageBox, ElMessage } from 'element-plus'
   import { dataInJs } from "~/assets/data/data.js"
@@ -303,7 +300,6 @@
 // }
 
 .main {
-  overflow: hidden;
   height: 100vh;
   padding: 0;
   margin: 0;
@@ -316,5 +312,9 @@
 
 .svg-icon {
   width: 50px;
+}
+
+.title_logo {
+  width: 100%;
 }
 </style>

@@ -1,33 +1,10 @@
 <template>
   <div class="in-main">
+    <div class="header">
+      <span class="demonstration">Information</span>
+    </div>
     <div class="in-content">
-      <!-- <div class="message-list">
-        <div class="message-box panel" :class="{'selected': selectedIndex == index}" v-for="(item, index) in truncatedNotifications" :key="index" @click="selectItem(index)">
-          <div class="header">
-            <div class="id">
-              <div class="id-frame">
-                {{item.from}}
-              </div>
-            </div>
-            <div class="title-block">
-              <div class="time">
-                {{item.time}}
-              </div>
-              <div class="title">
-                {{item.title_short}}
-              </div>
-            </div>
-          </div>
-          <div class="tips">
-            {{item.message_short}}
-          </div>
-        </div>
-      </div>
-      <div class="message-content">
-        <div class="text" v-html="selectedNotification.message">
-        </div>
-      </div> -->
-      <div class="message-box panel" :class="{ 'selected': selectedIndex == index }"
+      <div class="message-box" :class="{ 'selected': selectedIndex == index }"
         v-for="(item, index) in truncatedNotifications" :key="index" @click="selectItem(index)">
         <div class="information">
           <div class="time">
@@ -37,7 +14,7 @@
             {{ item.from }}
           </div>
         </div>
-        <div class="header">
+        <div class="info-header">
           {{ item.title }}
         </div>
         <div class="tips">
@@ -85,7 +62,7 @@ const notifications = ref([
 
 const truncatedNotifications = computed(() => {
   return notifications.value.map((item) => {
-    item.message_short = item.message.length > 18 ? item.message.slice(12, 30) + '...' : item.message
+    item.message_short = item.message.length > 18 ? item.message.slice(12, 100) + '...' : item.message
     item.title_short = item.title.length > 12 ? item.title.slice(0, 12) + '...' : item.title
     return item
   })
@@ -180,64 +157,31 @@ notifications.value[0].message = testMessage.value
 </script>
 
 <style scoped lang="less">
-.in-content {
-  margin: 3.5% 12.5%;
-  width: 80%;
-  height: 82%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-}
-
-.message-list {
-  border: #13B5B1 2px solid;
-
-  width: 30%;
-  height: 788px;
-
-  overflow-y: scroll;
-}
-
-.message-content {
-  border: #13B5B1 2px solid;
-  border-left: none;
-
-  width: 80%;
-  height: 788px;
-  /*height: 800px;*/
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  overflow-y: scroll;
-}
-
-.text {
-  width: 90%;
+.in-main {
   height: 100%;
+}
 
-  color: white;
-  /*display: flex;*/
-  /*justify-content: center;*/
-  /*align-items: center;*/
-
-  /*每一段缩进2em*/
-  text-indent: 2em;
-  /*左对齐*/
-  text-align: left;
+.in-content {
+  margin: 3.5% 5%;
+  width: 90%;
+  // display: flex;
+  // justify-content: center;
+  // align-items: flex-start;
+  // flex-direction: column;
 }
 
 .message-box {
   width: 100%;
   height: 10%;
+
+  margin-top: 30px;
   /*border-bottom: #13B5B1 1px solid;*/
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 
-  color: white;
+  color: black;
   cursor: pointer;
 
   .information {
@@ -249,94 +193,34 @@ notifications.value[0].message = testMessage.value
     justify-content: space-between;
   }
   
-  .header {
-    text-align: center;
+  .info-header {
+    width: 90%;
+    color: #023760;
+
+    font-size: 25px;
+    line-height: 1.2em;
+    font-weight: bolder;
+
+    text-align: left;
   }
 
   .tips {
-    text-align: center;
     font-family: Raleway,sans-serif;
-    line-height: 1.4rem;
+    line-height: 2.0rem;
+
+    font-size: 15px;
+
+    width: 90%;
+
+    text-align: left;
+
+    margin-top: 20px;
   }
-}
-
-.message-box:hover {
-  background-color: rgba(25, 206, 170, 0.2);
-  /*background-image: url('src/assets/imgs/chartBack.png');*/
-  /*background-size: 100% 100%;*/
-  /*color: white;*/
-}
-
-.message-box.selected {
-  background-color: rgba(25, 206, 170, 0.3);
-  /*background-image: url('src/assets/imgs/chartBack.png');*/
-  /*background-size: 100% 100%;*/
-  /*color: white;*/
-}
-
-.header {
-  width: 100%;
-  height: 60%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Montserrat,sans-serif;
-  font-weight: 700;
-  font-size: 1.5rem;
-  /*border: #13B5B1 1px solid;*/
-}
-
-.id {
-  width: 20%;
-  height: 100%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.id-frame {
-
-  width: 80%;
-  height: 50%;
-
-  border: #13B5B1 1px solid;
-  border-radius: 10px;
-
-  box-shadow: #13B5B1 0 0 4px;
-
-  background-color: rgba(25, 206, 170, 0.09);
-
-  font-size: small;
-}
-
-.title-block {
-  width: 80%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.title {
-  width: 100%;
-  height: 60%;
-
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-
-  font-size: large;
-  /*text-shadow: #13B5B1 1px 1px 1px;*/
-  opacity: 0.95;
-  /*border: #13B5B1 1px solid;*/
 }
 
 .time {
   text-align: left;
   font-size: small;
-  opacity: 0.6;
   color: #023760;
   display: inline-block;
   padding-bottom: .4rem;
@@ -351,24 +235,5 @@ notifications.value[0].message = testMessage.value
   padding-bottom: .4rem;
   margin-bottom: .8rem;
   border-bottom: 4px solid #f53c3c;
-}
-
-.tips {
-  width: 100%;
-  height: 40%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-
-  font-size: small;
-  /*border: #13B5B1 1px solid;*/
-
-  margin-right: 10%;
-
-  opacity: 0.6;
-}
-
-.panel {
-  background-size: cover;
 }
 </style>

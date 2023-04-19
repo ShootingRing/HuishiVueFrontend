@@ -1,42 +1,32 @@
 <template>
   <div class="wrapper">
-    <div class="info-content">
-        <el-card class="info-card" v-for="item in cards" @click="handleClick">
-            <!-- <template #header>
-                <div class="card-header">
-                    <span class="id">{{item.id}}</span>
-                    <span class="name" v-html="item.name"></span>
-                </div>
-            </template>
-                <div class="bottom">
-                  <span class="type" v-html="'项目类别：' + item.type"></span>
-                  <span class="chief">
-                    负责人：{{item.chief}}
-                  </span>
-                </div> -->
-                <template>
-                  <div class="id">
-                    {{ item.id }}
-                  </div>
-                  <div class="card-info">
-                    <div class="name" v-html="item.name"></div>
-                    <div class="cheif">
-                      负责人:{{ item.cheif }}
-                    </div>
-                    <div class="type" v-html="item.type"></div>
-                  </div>
-                </template>
-        </el-card>
+    <div class="header">
+        <span class="demonstration">Management</span>
     </div>
-    <div class="pagination" style="margin-left: 6%;">
-        <el-pagination layout="prev, pager, next" :total="50" background @current-change="nextPage"/>
-    </div>
+    <ol class="info-content">
+      <li v-for="item in cards" class="management-unit">
+        <div class="management-header">
+          <h5 class="management-title">
+            <a target="_blank">{{ item.name }}</a>
+          </h5>
+          <span class="management-type">{{ item.type }}</span>    
+        </div>
+        <div class="management-footer">
+        <span class="management-chief">{{ item.chief }}</span>
+        <span class="management-year">{{ item.time }}</span>
+      </div>
+      </li>
+    </ol>
   </div>
 </template>
 
 <script setup>
 import router from "~/router/index.js";
 import { ref } from "vue";
+/**
+ * 无，唯一搞过像样的项目就是正在做的服创项目
+ * 之后准备一心搞游戏客户端
+ */
 
 /*
 大数据智能处理                         中组部国家万人计划青年拔尖人才项目     何必
@@ -50,74 +40,83 @@ const cardsAll = ref([
   {
     id: 1,
     name: '大数据智能处理',
-    type: '中组部国家万人计划<br />青年拔尖人才项目',
+    type: '中组部国家万人计划青年拔尖人才项目',
     chief: '何必',
+    time: '2023-1-5',
   },
   {
     id: 2,
-    name: '公共区域人群异常行<br />为监测与智能预警',
+    name: '公共区域人群异常行为监测与智能预警',
     type: '湖南省重点研发计划',
     chief: '李华',
+    time: '2023-1-5',
   },
   {
     id: 3,
-    name: '多模态小样本数据的特征<br />增强与语义迁移学习',
+    name: '多模态小样本数据的特征增强与语义迁移学习',
     type: '之江实验室开放基金',
     chief: '张欣欣',
+    time: '2023-1-5',
   },
   {
     id: 4,
-    name: 'XXX交互式特征抽取<br />与迁移识别研究',
+    name: 'XXX交互式特征抽取与迁移识别研究',
     type: '军队委托项目',
     chief: '邹红颜',
+    time: '2023-1-5',
   },
   {
     id: 5,
-    name: 'PaddlePaddle<br />深度学习框架介绍与实践',
-    type: '教育部产学合作<br />协同育人项目',
+    name: 'PaddlePaddle深度学习框架介绍与实践',
+    type: '教育部产学合作协同育人项目',
     chief: '刘熙系',
+    time: '2023-1-5',
   },
   {
     id: 6,
-    name: '模态失衡背景下的数据提<br />质与深度融合方法研究',
-    type: '国家自然科学<br />基金面上项目',
+    name: '模态失衡背景下的数据提质与深度融合方法研究',
+    type: '国家自然科学基金面上项目',
     chief: '李存点',
+    time: '2023-1-5',
   },
   {
       id: 7,
-      name: '基于概率犹豫模糊集的<br />医疗数据安全风险评估',
+      name: '基于概率犹豫模糊集的医疗数据安全风险评估',
       type: '现代信息科技',
       chief: '李波波',
+      time: '2023-1-5',
   },
   {
       id: 8,
-      name: '大数据背景下的<br />气象数据安全防护策略探究',
+      name: '大数据背景下的气象数据安全防护策略探究',
       type: '网络安全技术与应用',
       chief: '朱添福',
+      time: '2023-1-5',
   },
   {
       id: 9,
-      name: ' 基于边缘计算的<br />人脸识别视频传输系统设计',
+      name: ' 基于边缘计算的人脸识别视频传输系统设计',
       type: '网络安全技术与应用',
       chief: '王兴元',
+      time: '2023-1-5',
   },
     ])
   // {
   //     id: 7,
-  //     name: 'XXX交互式特征抽取<br />与迁移识别研究',
+  //     name: 'XXX交互式特征抽取与迁移识别研究',
   //     type: '军队委托项目',
   //     chief: '邹红颜',
   // },
   // {
   //     id: 8,
-  //     name: 'PaddlePaddle<br />深度学习框架介绍与实践',
-  //     type: '教育部产学合作<br />协同育人项目',
+  //     name: 'PaddlePaddle深度学习框架介绍与实践',
+  //     type: '教育部产学合作协同育人项目',
   //     chief: '刘熙系',
   // },
   // {
   //     id: 9,
-  //     name: '模态失衡背景下的数据提<br />质与深度融合方法研究',
-  //     type: '国家自然科学<br />基金面上项目',
+  //     name: '模态失衡背景下的数据提质与深度融合方法研究',
+  //     type: '国家自然科学基金面上项目',
   //     chief: '李存点',
   // },
 
@@ -138,91 +137,73 @@ const handleClick = () => {
 </script>
 
 <style scoped lang="less">
-.wrapper {
-  width: 100%;
-  height: 100%;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
 
 .info-content {
-  padding-left: 8%;
-  padding-top: 5%;
-  padding-right: 2%;
-
   width: 100%;
-  height: 99%;
+  padding-left: 70px;
+}
 
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-gap: 0 5%;
+.management-unit {
+  width: 90%;
+  height: 150px;
 
-  font-family: '楷体', sans-serif;
+  padding-top: 1.0rem;
+  padding-left: 1.1rem;
 
+  background-color: #fff;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
 
-  .info-card {
-    width: 100%;
-    height: 65%;
-    //
-    //border-radius: 10px;
-    //
-    background: rgba(255, 255, 255, 0.04) url("src/assets/imgs/chartBack.png") no-repeat;
+  box-sizing: border-box;
+  .management-header {
+    margin-bottom: 2rem;
+    .management-title {
+      margin: 0;
+      font-size: inherit;
+      font-weight: inherit;
+      margin-bottom: .5rem;
 
-    cursor: pointer;
-
-    .card-header {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      padding: 0 10px;
-      height: 40px;
-
-      .id {
-        width: 22px;
-        height: 22px;
-        border-radius: 10px;
-        background-color: #409EFF;
-
-        color: #f9f9f9;
-      }
-
-      .name {
-        font-size: 25px;
-        color: white;
-
+      a {
+        color: #023760;
+        font-size: 1.6rem;
         font-weight: bold;
       }
     }
-
-    .bottom {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-
-      .type {
-        color: #409EFF;
-      }
-
-      .chief {
-        color: white;
-      }
-    }
   }
 
-  .info-card:hover {
-    box-shadow: #13B5B1 0 0 8px;
-  }
-
-  .pagination {
+  .management-footer {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: baseline;
+    
+    .management-chief {
+      color: #fff;
+      background-color: #60022f;
+      padding: .2rem .6rem;
+      border-radius: 100px;
+      margin-right: .5rem;
+    }
+
+    .management-year {
+      font-family: Montserrat,sans-serif;
+      font-weight: bold;
+      font-style: italic;
+
+    }
+
   }
+
 }
 
+.management-unit:hover {
+  box-shadow: 0 0 15px 5px rgba(0,0,0,.2);
+}
+
+.management-unit::marker {
+  color: grey;
+  font-style: italic;
+}
+.wrapper {
+  height: 100%;
+}
 
 </style>
