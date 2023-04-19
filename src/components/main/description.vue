@@ -2,13 +2,11 @@
   <div class="main">
     <div class="des">
       <div class="header">
-        <!-- <img src="" alt="none" /> -->
+        <span class="demonstration">Description</span>
       </div>
       <div class="content">
         <article class="project-des">
-          <div class="article-header">
-            项目介绍
-          </div>
+          <div class="article-header">项目介绍</div>
           <div class="article-content">
             <p>
               慧识是一款集成三重安全防护与可视化智能监控的鲁棒人脸识别认证系统。慧识系统面向公司全体用户，对机密信息设置安全人脸识别防护，用户通过请求摄像头进行实时视频检测的方式，便捷地实现身份认证，以获取相应机密信息的访问权限。
@@ -16,21 +14,13 @@
             <p>
               慧识解决了人脸识别系统恶意攻击防御弱、人脸识别鲁棒差、识别系统监控难等安全问题，为您的人脸识别提供更好的安全保障！
             </p>
-            <p>
-              （1）三重安全防护屏障，恶意攻击无处遁形
-            </p>
-            <p>
-              （2）鲁棒人脸识别模型，“人种歧视”一扫而光
-            </p>
-            <p>
-              （3）可视安全监控大屏，安全警告追踪入侵
-            </p>
+            <p>（1）三重安全防护屏障，恶意攻击无处遁形</p>
+            <p>（2）鲁棒人脸识别模型，“人种歧视”一扫而光</p>
+            <p>（3）可视安全监控大屏，安全警告追踪入侵</p>
           </div>
         </article>
       </div>
-      <div class="divider">
-        
-      </div>
+      <div class="divider"></div>
       <!-- <img src="src/assets/imgs/sapiens.png" alt="logo" class="logo"/>
       <img src="src/assets/imgs/Title/img.png"  alt="title" class="titleText"/> -->
       <!-- <div class="allText">
@@ -56,7 +46,6 @@
           （3）可视安全监控大屏，安全警告追踪入侵
         </div>
       </div> -->
-
     </div>
     <!-- <div class="circus">
       <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -85,35 +74,42 @@
 </template>
 
 <style scoped lang="less">
-
 //main
 .main {
-/*background-color: #f2f2f2;*/
+  /*background-color: #f2f2f2;*/
   width: 100%;
   height: 100%;
-
-  margin-top:8%;
-
+  margin-top: 8%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-
-  flex-direction: column;
 }
 
 .des {
   width: 100%;
   height: 100%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+
   .header {
-    background-color: #fff;
-    border-bottom: black 5px solid;
     width: 100%;
     height: 30%;
+    padding-left: 96px;
+    padding-right: 96px;
+    display: flex;
+    position: relative;
+    justify-content: start;
+    align-items: flex-end;
+    background: url(../../assets/imgs/header/mountain.jpg) no-repeat
+      center/cover;
+
+    .demonstration {
+      color: #fff;
+      box-sizing: border-box;
+      display: block;
+      z-index: 10;
+      font-family: Montserrat, sans-serif;
+      font-weight: 700;
+      font-size: 4vw;
+      line-height: 5.5vw;
+    }
   }
 
   .content {
@@ -135,5 +131,7 @@
   }
 }
 
-
+.header {
+  margin-right: 10em;
+}
 </style>

@@ -41,6 +41,7 @@
     "vue3-video-player": "^1.0.0"
   },
   "devDependencies": {
+    "@types/node": "^18.15.11",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vitejs/plugin-vue-jsx": "^3.0.0",
     "naive-ui": "^2.34.3",
