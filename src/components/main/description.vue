@@ -4,23 +4,23 @@
       <div class="header">
         <span class="demonstration">Description</span>
       </div>
-      <div class="content">
-        <article class="project-des">
-          <div class="article-header">项目介绍</div>
-          <div class="article-content">
-            <p>
-              慧识是一款集成三重安全防护与可视化智能监控的鲁棒人脸识别认证系统。慧识系统面向公司全体用户，对机密信息设置安全人脸识别防护，用户通过请求摄像头进行实时视频检测的方式，便捷地实现身份认证，以获取相应机密信息的访问权限。
-            </p>
-            <p>
-              慧识解决了人脸识别系统恶意攻击防御弱、人脸识别鲁棒差、识别系统监控难等安全问题，为您的人脸识别提供更好的安全保障！
-            </p>
-            <p>（1）三重安全防护屏障，恶意攻击无处遁形</p>
-            <p>（2）鲁棒人脸识别模型，“人种歧视”一扫而光</p>
-            <p>（3）可视安全监控大屏，安全警告追踪入侵</p>
-          </div>
-        </article>
-      </div>
-      <div class="divider"></div>
+      <article class="article container">
+        <div class="article-header">
+          <h2 class="article-title">项目介绍</h2>
+        </div>
+        <div class="article-content">
+          <p>
+            慧识是一款集成三重安全防护与可视化智能监控的鲁棒人脸识别认证系统。慧识系统面向公司全体用户，对机密信息设置安全人脸识别防护，用户通过请求摄像头进行实时视频检测的方式，便捷地实现身份认证，以获取相应机密信息的访问权限。
+          </p>
+          <p>
+            慧识解决了人脸识别系统恶意攻击防御弱、人脸识别鲁棒差、识别系统监控难等安全问题，为您的人脸识别提供更好的安全保障！
+          </p>
+          <p>（1）三重安全防护屏障，恶意攻击无处遁形</p>
+          <p>（2）鲁棒人脸识别模型，“人种歧视”一扫而光</p>
+          <p>（3）可视安全监控大屏，安全警告追踪入侵</p>
+        </div>
+      </article>
+      <!-- TODO 文字右侧需要加图 -->
       <!-- <img src="src/assets/imgs/sapiens.png" alt="logo" class="logo"/>
       <img src="src/assets/imgs/Title/img.png"  alt="title" class="titleText"/> -->
       <!-- <div class="allText">
@@ -75,6 +75,7 @@
 
 <style scoped lang="less">
 //main
+
 .main {
   /*background-color: #f2f2f2;*/
   width: 100%;
@@ -91,7 +92,7 @@
   .header {
     width: 100%;
     height: 30%;
-    padding-left: 96px;
+    padding-left: 90px;
     padding-right: 96px;
     display: flex;
     position: relative;
@@ -111,27 +112,9 @@
       line-height: 5.5vw;
     }
   }
-
-  .content {
-    background-color: #fff;
-    border-bottom: black 5px solid;
-    width: 100%;
-    height: 60%;
-
-    .project-des {
-      width: 80%;
-    }
-  }
-
-  .divider {
-    background-color: #fff;
-    border-bottom: black 5px solid;
-    width: 100%;
-    height: 10%;
+  .header {
+    margin-right: 10em;
   }
 }
 
-.header {
-  margin-right: 10em;
-}
 </style>

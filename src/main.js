@@ -7,7 +7,7 @@ import store from "./store/index.js";
 
 import 'vfonts/Lato.css'
 import $ from 'jquery'
-import 'virtual:windi.css'
+// import 'virtual:windi.css'
 
 //import Identify Components
 import SIdentify from './components/SIdentify.vue'
