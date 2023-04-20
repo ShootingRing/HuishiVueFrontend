@@ -57,7 +57,12 @@ const routes = [
                 path: '/info',
                 name: 'info',
                 component: info
-            }
+            },
+            {
+            path: '/screen',
+            name: 'screen',
+            component: screen,
+            },
         ]
     },
     {
@@ -69,11 +74,6 @@ const routes = [
         path: '/login',
         name: 'login',
         component: login
-    },
-    {
-      path: '/screen',
-      name: 'screen',
-      component: screen,
     },
     // {
     //   path: '/ros',

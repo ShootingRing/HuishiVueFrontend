@@ -43,8 +43,8 @@
               </el-menu-item>
               <el-menu-item index="7">
                 <div>
-                  <img src="src/icons/svg/exit_hover.svg" alt="face" class="svg-icon" v-if="isHovering">
-                  <img src="src/icons/svg/exit.svg" alt="face" class="svg-icon" v-else>
+                  <img src="src/icons/svg/screen_hover.svg" alt="face" class="svg-icon" v-if="isHovering">
+                  <img src="src/icons/svg/screen.svg" alt="face" class="svg-icon" v-else>
                 </div>
                 <span class="logout">登录数据</span>
               </el-menu-item>
