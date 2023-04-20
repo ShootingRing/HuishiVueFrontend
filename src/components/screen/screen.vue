@@ -3,6 +3,42 @@
   <div class="header">
     <span class="demonstration">BigScreen</span>
   </div>
+  <article class="article container">
+    <div class="article-header">
+      <h2 class="article-title">系统遭受恶意攻击占比</h2>
+    </div>
+    <div class="article-content tables">
+      <Ros class="ros charts"></Ros>
+    </div>
+  </article>
+  <div class="divider"></div>
+  <article class="article container">
+    <div class="article-header">
+      <h2 class="article-title">系统登陆与恶意登录次数占比</h2>
+    </div>
+    <div class="article-content tables">
+      <AttackTimes class="attack charts"></AttackTimes>
+    </div>
+  </article>
+  <div class="divider"></div>
+  <article class="article container">
+    <div class="article-header">
+      <h2 class="article-title">系统安全检测置信度</h2>
+    </div>
+    <div class="article-content tables">
+      <Ros class="ros charts"></Ros>
+    </div>
+  </article>
+  <div class="divider"></div>
+  <article class="article container">
+    <div class="article-header">
+      <h2 class="article-title">系统遭恶意攻击统计</h2>
+    </div>
+    <div class="article-content tables">
+      <Ros class="ros charts"></Ros>
+    </div>
+  </article>
+
   <div class="wrapper">
     <div class="top">
       <div class="table1">
@@ -120,7 +156,6 @@ const back = () => {
 
     .table1 {
       width: 50%;
-      border: black 1px solid;
     }
   }
   .middle {
@@ -132,13 +167,11 @@ const back = () => {
     .table3-1 {
       width: 50%;
       height: 100%;
-      border: black 1px solid;
     }
 
     .table3-2 {
       width: 50%;
       height: 100%;
-      border: black 1px solid;
     }
   }
 
@@ -150,12 +183,10 @@ const back = () => {
 
     .table2-1 {
       width: 50%;
-      border: black 1px solid;
     }
 
     .table2-2{
       width: 50%;
-      border: black 1px solid;
     }
   }
 </style>
