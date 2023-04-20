@@ -33,6 +33,21 @@
                 <img src="src/icons/svg/introduce.svg" alt="introduce" class="svg-icon" v-else />
                 <span class="des">项目介绍</span>
               </el-menu-item>
+              <el-menu-item index="5">
+                <div>
+                  <!-- <scan-alt /> -->
+                  <img src="src/icons/svg/face_hover.svg" alt="face" class="svg-icon" v-if="isHovering">
+                  <img src="src/icons/svg/face.svg" alt="face" class="svg-icon" v-else>
+                </div>
+                <span class="face">人脸识别</span>
+              </el-menu-item>
+              <el-menu-item index="7">
+                <div>
+                  <img src="src/icons/svg/exit_hover.svg" alt="face" class="svg-icon" v-if="isHovering">
+                  <img src="src/icons/svg/exit.svg" alt="face" class="svg-icon" v-else>
+                </div>
+                <span class="logout">登录数据</span>
+              </el-menu-item>
               <el-menu-item index="3" v-bind:class="{'disabled' : access < 1}">
                 <div v-if="access >= 1">
                   <img src="src/icons/svg/notice_hover.svg" alt="notice" class="svg-icon" v-if="isHovering">
@@ -52,21 +67,6 @@
                   <img src="src/icons/svg/lock.svg" alt="face" class="svg-icon">
                 </div>
                 <span class="manage">项目管理</span>
-              </el-menu-item>
-              <el-menu-item index="5">
-                <div>
-                  <!-- <scan-alt /> -->
-                  <img src="src/icons/svg/face_hover.svg" alt="face" class="svg-icon" v-if="isHovering">
-                  <img src="src/icons/svg/face.svg" alt="face" class="svg-icon" v-else>
-                </div>
-                <span class="face">人脸识别</span>
-              </el-menu-item>
-              <el-menu-item index="7">
-                <div>
-                  <img src="src/icons/svg/exit_hover.svg" alt="face" class="svg-icon" v-if="isHovering">
-                  <img src="src/icons/svg/exit.svg" alt="face" class="svg-icon" v-else>
-                </div>
-                <span class="logout">退出登录</span>
               </el-menu-item>
             </el-menu>
       </el-aside>
@@ -159,9 +159,7 @@
         router.push('/user')
         break
       case '7':
-        router.push('/login')
-        // 退出登录,清除本地存储
-        localStorage.clear()
+        router.push('/screen')
         break
     }
   }
