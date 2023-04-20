@@ -103,7 +103,7 @@ function setChart() {
       left: 'center',
       top: '0',
       textStyle: {
-        color: '#fff',
+        color: 'black',
         fontSize: 20
       }
     },
@@ -111,7 +111,7 @@ function setChart() {
       type: 'category',
       data: users,
       axisLabel: {
-        color: 'white',
+        color: 'black',
       },
     },
     yAxis: {
@@ -119,7 +119,7 @@ function setChart() {
       min: 60,
       max: 100,
       axisLabel: {
-        color: 'white',
+        color: 'black',
       },
     },
     tooltip: {
@@ -138,7 +138,7 @@ function setChart() {
         // markLine: {
         //   symbol: "none",               //去掉警戒线最后面的箭头
         //   label: {
-        //     color: '#fff',
+        //     color: 'black',
         //     position: "end"          //将警示值放在哪个位置，三个值“start”,"middle","end"  开始  中点 结束
         //   },
         //   data: [{
@@ -172,7 +172,7 @@ function setChart() {
     legend: {
       data: ['照片/电子屏/3D建模', '对抗样本', '深度伪造'],
       textStyle: {
-        color: 'white',
+        color: 'black',
       },
       bottom: '10%',
     }

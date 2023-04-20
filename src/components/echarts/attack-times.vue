@@ -25,7 +25,7 @@ onMounted( () => {
     legend: {
       data: ['正常登录次数', '攻击次数'],
       textStyle: {
-        color: 'white',
+        color: 'black',
         fontSize: 11
       }
     },
@@ -44,7 +44,7 @@ onMounted( () => {
     title: {
       text: '系统登录与恶意登录次数对比(次)',
       textStyle: {
-        color: 'white',
+        color: 'black',
         fontSize: 20
       },
       left: 'center',
@@ -58,13 +58,13 @@ onMounted( () => {
       //坐标轴轴线相关设置。就是数学上的x轴
       axisLine: {
         lineStyle: {
-          color: 'rgba(255,255,255,.1)'
+          color: 'rgba(0,0,0,.5)'
         }
       },
       //坐标轴刻度标签的相关设置
       axisLabel: {
         textStyle: {
-          color: "#fff",
+          color: "black",
           fontSize: 12
         }
       },
@@ -77,14 +77,14 @@ onMounted( () => {
       //坐标轴刻度标签的相关设置
       axisLabel: {
         textStyle: {
-          color: "#fff",
+          color: "black",
           fontSize: 12
         }
       },
       //坐标轴在 grid 区域中的分隔线。
       splitLine: {
         lineStyle: {
-          color: 'rgba(255,255,255,.1)'
+          color: 'rgba(0,0,0,.1)'
         }
       }
     },
@@ -141,7 +141,7 @@ onMounted( () => {
               ],
               false
           ),
-          shadowColor: "rgba(0, 0, 0, 0.1)"
+          shadowColor: "rgba(0, 0, 0, .1)"
         },
       },
     ]

@@ -27,7 +27,7 @@ function updateChart() {
       left: 'center',
       top: '0',
       textStyle: {
-        color: '#fff',
+        color: 'black',
         fontSize: 20
       }
     },
@@ -35,7 +35,7 @@ function updateChart() {
     legend: {
       top: 'bottom',
       textStyle: {
-        color: 'white',
+        color: 'black',
         fontSize: 12
       }
     },
@@ -65,10 +65,10 @@ function updateChart() {
             return colorList[index]
           },
           shadowBlur: 5,
-          shadowColor: 'rgba(255, 255, 255, 0.6)'
+          shadowColor: 'rgba(0, 0, 0, 0.2)'
         },
         label: {
-          color: 'white',
+          color: 'black',
           fontSize: 13,
           //make labels outside but not too far from the center
           distanceToLabelLine: 2,

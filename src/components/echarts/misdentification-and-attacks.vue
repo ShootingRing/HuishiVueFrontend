@@ -52,7 +52,7 @@ function setChart() {
       left: '5',
       bottom: '5',
       textStyle: {
-        color: '#fff',
+        color: 'black',
         fontSize: 18
       }
     },
@@ -61,7 +61,7 @@ function setChart() {
         right: '5',
         top: '5',
         textStyle: {
-          color: '#fff',
+          color: 'black',
           fontSize: 18
         }
       }
@@ -87,7 +87,7 @@ function setChart() {
       {
         name: 'Pie Chart',
         type: 'pie',
-        radius: [75, 78],
+        radius: [152, 155],
         center: ['50%', '50%'],
         // roseType: 'area',
         itemStyle: {
@@ -104,7 +104,7 @@ function setChart() {
           shadowColor: 'rgba(142, 152, 241, 0.6)'
         },
         label: {
-          color: 'white',
+          color: 'black',
           fontSize: 16,
           formatter: (params) => {
             if (params.name === '') {
@@ -153,7 +153,7 @@ function setChart() {
             },
             textStyle: {
               fontSize: 25,
-              color: '#fff',
+              color: 'black',
             },
           },
         },

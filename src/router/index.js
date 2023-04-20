@@ -74,13 +74,6 @@ const routes = [
       path: '/screen',
       name: 'screen',
       component: screen,
-      children: [
-          {
-              path: '/details',
-              name: 'details',
-              component: details
-          }
-      ]
     },
     // {
     //   path: '/ros',
