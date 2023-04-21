@@ -160,7 +160,7 @@
         console.log(event.data);
         videoData.value.push(event.data)
       };
-  
+
       recorder.onstop = async () => {
         recordBlob = new Blob(videoData.value, {type: 'video/mp4;codecs=vp8,opus'});
         blobToBase64(recordBlob).then((res) => {
@@ -168,25 +168,7 @@
           axios.post('http://127.0.0.1:8000/detection', {
             data: res
           })
-          //     .then(res => {
-          //   console.log(res)
-          //   if(res.status == 200){
-          //     success.value = true
-          //     isScaning.value = false
-          //     dialogVisible.value = false
-          //   }else{0
-          //     success.value = false
-          //     isScaning.value = false
-          //     dialogVisible.value = false
-          //   }
-          // })
-          // document.getElementById('video').src = base64;
         });
-        //
-        // const videoUrl = window.URL.createObjectURL(recordBlob);
-        // open(videoUrl)
-  
-        // saveAs(recordBlob, 'record.mp4');
       }
   
       setTimeout(() => {
