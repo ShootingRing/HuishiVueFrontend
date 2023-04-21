@@ -47,25 +47,6 @@ function setChart() {
   let option;
 
   option = {
-    title: [{
-      text: '系统识别误识统计',
-      left: '5',
-      bottom: '5',
-      textStyle: {
-        color: 'black',
-        fontSize: 18
-      }
-    },
-      {
-        text: '系统遭恶意攻击统计',
-        right: '5',
-        top: '5',
-        textStyle: {
-          color: 'black',
-          fontSize: 18
-        }
-      }
-    ],
     backgroundColor: 'rgba(0,0,0,0)',
     legend: {
       show: false
@@ -87,7 +68,7 @@ function setChart() {
       {
         name: 'Pie Chart',
         type: 'pie',
-        radius: [152, 155],
+        radius: [132, 135],
         center: ['50%', '50%'],
         // roseType: 'area',
         itemStyle: {
@@ -105,12 +86,17 @@ function setChart() {
         },
         label: {
           color: 'black',
-          fontSize: 16,
+          fontSize: 20,
           formatter: (params) => {
             if (params.name === '') {
               return ''
             }
             return params.name + '\n' + params.value + '%'
+          }
+        },
+        labelLine: {
+          normal: {
+            length: 50
           }
         },
         color: colorList,
@@ -119,7 +105,7 @@ function setChart() {
       {
         type: 'liquidFill',
         name: '识别率',
-        radius: '80%',
+        radius: '50%',
         center: ['50%', '50%'],
         color: [
           {

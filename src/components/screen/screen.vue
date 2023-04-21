@@ -1,7 +1,7 @@
 <template>
 <div class="content">
   <div class="header">
-    <span class="demonstration">BigScreen</span>
+    <span class="demonstration">DataAnalysis</span>
   </div>
   <article class="article container">
     <div class="article-header">
@@ -26,7 +26,7 @@
       <h2 class="article-title">系统安全检测置信度</h2>
     </div>
     <div class="article-content tables">
-      <Ros class="ros charts"></Ros>
+      <Bar class="ros charts"></Bar>
     </div>
   </article>
   <div class="divider"></div>
@@ -34,41 +34,10 @@
     <div class="article-header">
       <h2 class="article-title">系统遭恶意攻击统计</h2>
     </div>
-    <div class="article-content tables">
-      <Ros class="ros charts"></Ros>
+    <div class="article-content tables Cookie">
+      <Cookie class="ros charts"></Cookie>
     </div>
   </article>
-
-  <div class="wrapper">
-    <div class="top">
-      <div class="table1">
-        <Ros class="ros charts"></Ros>
-      </div>
-      <div class="table1">
-        <AttackTimes class="attack charts"></AttackTimes>
-      </div>
-    </div>
-    <div class="middle">
-      <div class="table3-1">
-        <Bar class="bar charts"></Bar>
-      </div>
-      <div class="table3-2">
-        <Cookie class="cookie charts"></Cookie>
-      </div>
-    </div>
-    <div class="bottom">
-      <div class="table2-1">
-            <div class="container">
-              <div class="top-con">
-              </div>
-              <div class="bottom-con">
-              </div>
-          </div>
-      </div>
-      <div class="table2-2">
-      </div>
-    </div>
-  </div>
 </div>
 </template>
 
@@ -188,5 +157,14 @@ const back = () => {
     .table2-2{
       width: 50%;
     }
+  }
+
+  .tables {
+    width: 100%;
+    height: 300px;
+  }
+
+  .Cookie {
+    height: 500px;
   }
 </style>

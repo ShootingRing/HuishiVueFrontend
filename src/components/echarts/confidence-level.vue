@@ -98,15 +98,6 @@ function setChart() {
   let option;
 
   option = {
-    title: {
-      text: '系统安全检测置信度',
-      left: 'center',
-      top: '0',
-      textStyle: {
-        color: 'black',
-        fontSize: 20
-      }
-    },
     xAxis: {
       type: 'category',
       data: users,
@@ -174,7 +165,8 @@ function setChart() {
       textStyle: {
         color: 'black',
       },
-      bottom: '10%',
+      left: 'right',
+      orient: 'vertical'
     }
   }
 

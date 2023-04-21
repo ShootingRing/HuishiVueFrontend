@@ -27,7 +27,9 @@ onMounted( () => {
       textStyle: {
         color: 'black',
         fontSize: 11
-      }
+      },
+      orient: 'vertical',
+      left: 'right'
     },
     grid: {
       left: '3%',
@@ -39,16 +41,6 @@ onMounted( () => {
       feature: {
         // saveAsImage: {}
       }
-    },
-    //标题 - 顶部居中
-    title: {
-      text: '系统登录与恶意登录次数对比(次)',
-      textStyle: {
-        color: 'black',
-        fontSize: 20
-      },
-      left: 'center',
-      top: 22
     },
     xAxis: {
       type: 'category',
