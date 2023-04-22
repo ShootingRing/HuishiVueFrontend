@@ -38,7 +38,60 @@
       <Cookie class="ros charts"></Cookie>
     </div>
   </article>
+  <div class="divider"></div>
+  <article class="article container">
+    <div class="article-header">
+      <h2 class="article-title">登陆历史</h2>
+    </div>
+    <div class="article-content tables loginHis">
+      <el-table :data="loginData" height="250" style="width: 100%" @row-click="handleClick">
+        <el-table-column prop="employeeID" label="ID" width="180" />
+        <el-table-column prop="name" label="Name" width="180" />
+        <el-table-column prop="position" label="Position" />
+        <el-table-column prop="age" label="Age" />
+        <el-table-column prop="degree" label="Degree" />
+      </el-table>
+    </div>
+  </article>
+  <div class="divider"></div>
+  <article class="article container">
+    <div class="article-header">
+      <h2 class="article-title">高危登录历史</h2>
+    </div>
+    <div class="article-content tables attackHis">
+      <el-table :data="attackData" height="250" style="width: 100%" @row-click="handleClick">
+        <el-table-column prop="employeeID" label="ID" width="180" />
+        <el-table-column prop="name" label="Name" width="180" />
+        <el-table-column prop="position" label="Position" />
+        <el-table-column prop="age" label="Age" />
+        <el-table-column prop="degree" label="Degree" />
+      </el-table>
+    </div>
+  </article>
 </div>
+
+
+<el-dialog 
+v-model="dialogTableVisible" 
+title="详细信息" 
+class="dialog"
+width="80%"
+>
+  <div class="dialog-container">
+    <div class="info">
+      <p>姓名：{{ itemShowing.name }}</p>
+      <p>年龄：{{ itemShowing.age }}</p>
+      <p>职位：{{ itemShowing.position }}</p>
+      <p>学号：{{ itemShowing.employeeID }}</p>
+      <p>学位：{{ itemShowing.degree }}</p>
+      <p>识别结果：{{ itemShowing.detection == 1? '认证成功':'认证失败' }}</p>
+    </div>
+      <img :src='img(itemShowing.id)' alt="head" class="left-img"/>
+      <img v-if="itemShowing.value.id == 10" src="src\assets\imgs\faces\zcy_face.png" alt="head" class="right-img"/>
+      <img v-else src="src\assets\imgs\faces\img_1.png" alt="head" class="right-img"/>
+  </div>
+
+</el-dialog>
 </template>
 
 <script setup>
@@ -51,25 +104,21 @@ import router from "~/router/index.js"
 import {dataInJs} from "~/assets/data/data.js";
 
 /*中上表格数据*/
-const preDataset = ref(dataInJs())
+const Dataset = ref(dataInJs())
 
-const dataset = ref(preDataset.value.slice(0).concat(preDataset.value.slice(0, 4)))
-console.log(dataset.value)
+const loginData = ref(Array.from(Dataset.value.filter(item => item.detection == 1)));
+const attackData = ref(Array.from(Dataset.value.filter(item => item.detection == 2)));
 
-function normalRandom(mean, variance) {
-  const u1 = Math.random();
-  const u2 = Math.random();
-  const z = Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
-  return mean + z * variance;
+// const src = ref("src/assets/imgs/icons/det"+details.detection+"-1.png")
+
+const img = (id) => {
+  const imgSrc = "src/assets/imgs/faces/" + id + ".jpg"
+  return imgSrc
 }
 
 onUnmounted(() => {
   clearInterval(interval)
 })
-
-/*筛选得列表数据*/
-const listDataSet = ref(Array.from(dataset.value.filter(item => item.detection === 2 || item.detection === 3).values()))
-
 /*进行页面跳转：点击中上图表中一个单元时，显示详情*/
 const clickHandler = (id) => {
   console.log('click' + id)
@@ -77,7 +126,7 @@ const clickHandler = (id) => {
   /*由wrapper下的<router-view>接收，其使用absolute定位*/
   router.push(
       {
-        name: 'details',
+        name: 'itemShowing',
         query: {
           id: id
         }
@@ -87,6 +136,15 @@ const clickHandler = (id) => {
 
 const back = () => {
   router.back()
+}
+
+const itemShowing = ref(null);
+const dialogTableVisible = ref(false);
+
+const handleClick = (row) => {
+  console.log("click!!")
+  itemShowing.value = row;
+  dialogTableVisible.value = true;
 }
 
 </script>
@@ -166,5 +224,29 @@ const back = () => {
 
   .Cookie {
     height: 500px;
+  }
+
+  .dialog-container {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-around;
+  }
+
+  .left-img {
+    width: 30%;
+    height: 380px;
+  }
+
+  .right-img {
+    width: 30%;
+    height: 380px;
+  }
+
+  .info {
+    p {
+      font-size: 20px;
+      font-weight: bold;
+    }
   }
 </style>

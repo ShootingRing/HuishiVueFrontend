@@ -8,13 +8,11 @@
         <img
           src="src/icons/svg/face_not_recognition.svg"
           class="image"
-          v-if="!success"
+          v-if="!success && !isScaning"
         />
-        <img
-          src="src\assets\imgs\faces\keys.png"
-          class="image"
-          v-else
-        />
+        <video class="left-video" v-else autoplay>
+          <source src="src/assets/videos/ydy_keys.mkv" type="video/mp4">
+        </video>
         <div style="padding: 0px; text-align: center; margin-bottom: 10px;">
           <span>人脸关键点检测</span>
         </div>
@@ -23,13 +21,11 @@
         <img
           src="src/icons/svg/face_not_recognition.svg"
           class="image"
-          v-if="!success"
+          v-if="!success && !isScaning"
         />
-        <img
-          src="src/assets/imgs/faces/spilt.png"
-          class="image"
-          v-else
-        />
+        <video class="left-video" v-else autoplay>
+          <source src="src/assets/videos/ydy_split.mkv" type="video/mp4">
+        </video>
         <div style="padding: 0px; text-align: center; margin-bottom: 10px;">
           <span>人像精细分割</span>
         </div>
@@ -38,7 +34,7 @@
     <div class="detect">
       <div class="detect-circle">
         <video class="video" v-if="!success && isScaning" autoplay>
-          <source src="src/assets/videos/stream1.mkv" type="video/mp4">
+          <source src="src/assets/videos/ydy.mkv" type="video/mp4">
         </video>
         <img
         v-else 
@@ -82,6 +78,7 @@ import {defineEmits, ref} from "vue"
 import {dataInJs} from "~/assets/data/data.js"
 import { saveAs } from 'file-saver';
 import axios from "axios";
+import { ElMessage } from 'element-plus'
 
 const success = ref(false);
 
@@ -94,7 +91,8 @@ const details = ref({
   sex: '男',
   age: 20,
   position: '前端工程师',
-  id: 8208215566
+  id: 8208215566,
+  detection: 1
 })
 
 const emit = defineEmits(['button-click'])
@@ -152,13 +150,18 @@ const handleScan = async () => {
   // };
 
   setTimeout(() => {
-    success.value = true
+
+    success.value = details.value.detection==1?true:false;
+    ElMessage(
+      {
+        message: success.value?'认证成功':'认证失败',
+        type: success.value?'success':'error'
+      }
+    )
+
     isScaning.value = false
-    console.log(isScaning.value)
-    // stream.getVideoTracks()[0].stop();
-    console.log(isScaning.value)
     emit('button-click');
-  }, 3000)
+  }, 2500)
 }
 
 
@@ -257,6 +260,10 @@ console.log(success.value);
     width: 350px;
     height: 350px;
     margin: auto;
+  }
+
+  .left-video {
+    width: 100%;
   }
 
 </style>
