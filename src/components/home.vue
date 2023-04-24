@@ -42,11 +42,14 @@
                 <span class="face">人脸识别</span>
               </el-menu-item>
               <el-menu-item index="7">
-                <div>
+                <div v-if="access >= 1">
                   <img src="src/icons/svg/screen_hover.svg" alt="face" class="svg-icon" v-if="isHovering">
                   <img src="src/icons/svg/screen.svg" alt="face" class="svg-icon" v-else>
                 </div>
-                <span class="logout">登录数据</span>
+                <div v-else>
+                  <img src="src/icons/svg/lock.svg" alt="face" class="svg-icon">
+                </div>
+                <span class="data">登录数据</span>
               </el-menu-item>
               <el-menu-item index="3" v-bind:class="{'disabled' : access < 1}">
                 <div v-if="access >= 1">
@@ -67,6 +70,13 @@
                   <img src="src/icons/svg/lock.svg" alt="face" class="svg-icon">
                 </div>
                 <span class="manage">项目管理</span>
+              </el-menu-item>
+              <el-menu-item index="8" v-bind:class="{'disabled' : access < 1}">
+                <div>
+                  <img src="src/icons/svg/logout_hover.svg" alt="logout" class="svg-icon" v-if="isHovering">
+                  <img src="src/icons/svg/logout.svg" alt="logout" class="svg-icon" v-else>
+                </div>
+                <span class="logout">退出登录</span>
               </el-menu-item>
             </el-menu>
       </el-aside>
@@ -95,7 +105,7 @@
   const isHovering = ref(false)
 
   // 访问权限相关变量
-  const access = ref(1) //权限等级 : 0-未认证 1-普通用户 等等
+  const access = ref(0) //权限等级 : 0-未认证 1-普通用户 等等
   const updateAccess = () => {
     access.value = 3
   }
@@ -159,9 +169,18 @@
         router.push('/user')
         break
       case '7':
+      if(access.value < 1) {
+          myAlert()
+          break
+        }
         router.push('/screen')
         break
+       case '8':
+        router.push('/login')
+        localStorage.clear();
+        break       
     }
+
   }
 
 
@@ -202,13 +221,13 @@
   // background: url("src/assets/imgs/index_bg.png") no-repeat;
   background-size: cover;
 
-  overflow: scroll;
+  // overflow: hidden;
 
 }
 
 //sidebar
 .el-aside {
-  width: 150px;
+  width: 110px;
 
   display: block;
   position: absolute;
@@ -217,6 +236,8 @@
   height: 100%;
   bottom: 0;
   overflow: hidden;
+
+  cursor: pointer;
 
   z-index: 999;
 
@@ -251,6 +272,14 @@
   .face {
     color: #8A2BE2;
   }
+
+  .data {
+    color: #FF4500;
+  }
+
+  .logout {
+    color: #d81e06;
+  }
 }
 
 //.el-menu-top:not(.el-menu--collapse) {
@@ -269,7 +298,7 @@
  justify-items: center;
  align-content: center;
 
- height: 17%;
+ height: 14.5%;
 
  p {
   display: block;
@@ -285,7 +314,7 @@
 .main-container {
  height: 100%;
 
- padding-left: 150px;
+ padding-left: 110px;
 }
 
 .disabled {
@@ -301,6 +330,8 @@
   height: 100vh;
   padding: 0;
   margin: 0;
+
+  overflow-x: hidden;
 }
 .logo-in-aside {
   display: flex;

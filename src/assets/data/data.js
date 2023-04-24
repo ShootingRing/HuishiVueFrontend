@@ -23,10 +23,10 @@ export function dataInJs() {
         {
             id: 3,
             name: '王泥喜',
-            position: 'xxx',
+            position: 'AI工程师',
             detection: 2,
             age: '18',
-            degree: 'xxx',
+            degree: '本科',
             employeeID: 82059814,
             attack: '深度伪造'
         },
@@ -37,7 +37,7 @@ export function dataInJs() {
           detection: 1,
           age: 18,
           degree: '本科',
-            employeeID: 82056487,
+          employeeID: 82056487,
           attack: ''
         },
         {
@@ -73,10 +73,10 @@ export function dataInJs() {
         {
             id: 8,
             name: '杨子怡',
-            position: 'xxx',
+            position: 'AI工程师',
             detection: 2,
-            age: 'xxx',
-            degree: 'xxx',
+            age: 18,
+            degree: '本科',
             employeeID: 82094675,
             attack: '视频重放'
         },
@@ -102,12 +102,12 @@ export function dataInJs() {
         // },
         {
             id: 10,
-            name: '廖鑫',
+            name: '曾崇岳',
             position: '数据库管理',
             detection: 2,
             age: '18',
             degree: '本科',
-            employeeID: 82003451,
+            employeeID: 82003846,
             attack: '对抗样本'
         },
         {
