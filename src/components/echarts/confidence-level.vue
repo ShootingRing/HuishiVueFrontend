@@ -135,22 +135,6 @@ function setChart() {
         itemStyle: {
           barBorderRadius: 3,
         },
-        // markLine: {
-        //   symbol: "none",               //去掉警戒线最后面的箭头
-        //   label: {
-        //     color: 'black',
-        //     position: "end"          //将警示值放在哪个位置，三个值“start”,"middle","end"  开始  中点 结束
-        //   },
-        //   data: [{
-        //     silent: false,             //鼠标悬停事件  true没有，false有
-        //     lineStyle: {               //警戒线的样式  ，虚实  颜色  粗细
-        //       type: "dashed",
-        //       color: "#f66966",
-        //       width: 2
-        //     },
-        //     yAxis: 86          // 警戒线的标注值，可以有多个yAxis,多条警示线   或者采用   {type : 'average', name: '平均值'}，type值有  max  min  average，分为最大，最小，平均值
-        //   }]
-        // }
       },
       {
         name: '对抗样本',
@@ -195,13 +179,10 @@ const interval = setInterval(() => {
   users.push(PreUsers[length.value])//循环添加数据
 
   dataset.value.push({value: Math.floor(Math.random() * 20) + 80, itemStyle: {color: colorList[0]}})
-  // dataset.value[dataset.value.length - 1].itemStyle.color = computedColor(dataset.value[dataset.value.length - 1].value)
 
   dataset2.value.push({value: Math.floor(Math.random() * 20) + 80, itemStyle: {color: colorList[1]}})
-  // dataset2.value[dataset2.value.length - 1].itemStyle.color = computedColor(dataset2.value[dataset2.value.length - 1].value)
 
   dataset3.value.push({value: Math.floor(Math.random() * 20) + 80, itemStyle: {color: colorList[2]}})
-  // dataset3.value[dataset3.value.length - 1].itemStyle.color = computedColor(dataset3.value[dataset3.value.length - 1].value)
 
   if(users.length >= 5){
     //delete the first 5 elements

@@ -1,75 +1,75 @@
 <template>
-<div class="content">
-  <div class="header">
-    <span class="demonstration">BigScreen</span>
-  </div>
-  <article class="article container">
-    <div class="article-header">
-      <h2 class="article-title">系统遭受恶意攻击占比</h2>
+  <div class="content">
+    <div class="header">
+      <span class="demonstration">BigScreen</span>
     </div>
-    <div class="article-content tables">
-      <Ros class="ros charts"></Ros>
-    </div>
-  </article>
-  <div class="divider"></div>
-  <article class="article container">
-    <div class="article-header">
-      <h2 class="article-title">系统登陆与恶意登录次数占比</h2>
-    </div>
-    <div class="article-content tables">
-      <AttackTimes class="attack charts"></AttackTimes>
-    </div>
-  </article>
-  <div class="divider"></div>
-  <article class="article container">
-    <div class="article-header">
-      <h2 class="article-title">系统安全检测置信度</h2>
-    </div>
-    <div class="article-content tables">
-      <Ros class="ros charts"></Ros>
-    </div>
-  </article>
-  <div class="divider"></div>
-  <article class="article container">
-    <div class="article-header">
-      <h2 class="article-title">系统遭恶意攻击统计</h2>
-    </div>
-    <div class="article-content tables">
-      <Ros class="ros charts"></Ros>
-    </div>
-  </article>
-
-  <div class="wrapper">
-    <div class="top">
-      <div class="table1">
+    <article class="article container">
+      <div class="article-header">
+        <h2 class="article-title">系统遭受恶意攻击占比</h2>
+      </div>
+      <div class="article-content tables">
         <Ros class="ros charts"></Ros>
       </div>
-      <div class="table1">
+    </article>
+    <div class="divider"></div>
+    <article class="article container">
+      <div class="article-header">
+        <h2 class="article-title">系统登陆与恶意登录次数占比</h2>
+      </div>
+      <div class="article-content tables">
         <AttackTimes class="attack charts"></AttackTimes>
       </div>
-    </div>
-    <div class="middle">
-      <div class="table3-1">
-        <Bar class="bar charts"></Bar>
+    </article>
+    <div class="divider"></div>
+    <article class="article container">
+      <div class="article-header">
+        <h2 class="article-title">系统安全检测置信度</h2>
       </div>
-      <div class="table3-2">
-        <Cookie class="cookie charts"></Cookie>
+      <div class="article-content tables">
+        <Ros class="ros charts"></Ros>
       </div>
-    </div>
-    <div class="bottom">
-      <div class="table2-1">
-            <div class="container">
-              <div class="top-con">
-              </div>
-              <div class="bottom-con">
-              </div>
-          </div>
+    </article>
+    <div class="divider"></div>
+    <article class="article container">
+      <div class="article-header">
+        <h2 class="article-title">系统遭恶意攻击统计</h2>
       </div>
-      <div class="table2-2">
+      <div class="article-content tables">
+        <Ros class="ros charts"></Ros>
+      </div>
+    </article>
+
+    <div class="wrapper">
+      <div class="top">
+        <div class="table1">
+          <Ros class="ros charts"></Ros>
+        </div>
+        <div class="table1">
+          <AttackTimes class="attack charts"></AttackTimes>
+        </div>
+      </div>
+      <div class="middle">
+        <div class="table3-1">
+          <Bar class="bar charts"></Bar>
+        </div>
+        <div class="table3-2">
+          <Cookie class="cookie charts"></Cookie>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="table2-1">
+              <div class="container">
+                <div class="top-con">
+                </div>
+                <div class="bottom-con">
+                </div>
+            </div>
+        </div>
+        <div class="table2-2">
+        </div>
       </div>
     </div>
   </div>
-</div>
 </template>
 
 <script setup>
