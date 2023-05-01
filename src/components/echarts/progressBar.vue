@@ -6,19 +6,43 @@
 
 <script setup>
 import * as echarts from 'echarts'
-import {onMounted, onUnmounted, ref} from "vue"
+import {onMounted, onUnmounted, ref, watch} from "vue"
+import { dataInJs } from '/public/assets/data/data.js'
+
 
 const props = defineProps({
-    detection: {
+    id: {
         type: Number,
         default: 1
     },
 })
 
-const data = ref([5,99,8]);
+const user = ref(dataInJs()[props.id-1]);
 
-if(props.detection === 1){
-  data.value = [5,3,8];
+let attack = -1;
+switch(user.value.attack){
+      case '视频重放':
+      case '打印照片':
+        attack = 0
+        break
+      case '对抗样本':
+        attack = 1
+        break
+      case '深度伪造':
+        attack = 2
+        break
+}
+
+const data = ref([5,3,8]);
+
+if(attack === 0){
+  data.value = [99,3,8];
+}
+if(attack === 1){
+  data.value = [5,99,8];
+}
+if(attack === 2){
+  data.value = [4,2,99];
 }
 
 const colorList = [
@@ -98,8 +122,9 @@ function setChart() {
         axisLabel: {
           show: true,
           textStyle: {
-            fontSize: '18',
-            color: 'white',
+            fontSize: '16',
+            color: 'black',
+            fontWeight: 'bold',
           },
         },
         splitLine: {
@@ -127,7 +152,7 @@ function setChart() {
           position: 'right',
           formatter: '{@score}%',
           textStyle: {
-            color: 'white',
+            color: 'black',
             fontSize: '15',
           },
         },
@@ -151,9 +176,7 @@ function setChart() {
 onMounted( () => {
   setChart()
 })
-
-const length = ref(5)
-
+// watch(data.value, setChart());
 
 // onUnmounted(() => {
 //   clearInterval(interval)
@@ -162,9 +185,7 @@ const length = ref(5)
 
 <style scoped>
 #progress {
-  width: 100%;
-  height: 100%;
-
-  margin-top: 20px;
+  width: 1000px;
+  height: 100px;
 }
 </style>

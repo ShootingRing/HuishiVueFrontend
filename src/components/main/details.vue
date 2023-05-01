@@ -11,7 +11,7 @@
                 <span style="color: #FF505F; font-size: 40px; font-weight: bold">遭到{{details.attack}}攻击</span>
             </div>
           <div class="left">
-            <img src="src/assets/imgs/faces/img_1.png" alt="head" />
+            <img src="/public/assets/imgs/faces/img_1.png" alt="head" />
           </div>
           <el-divider direction="vertical" class="el-divider-middle"></el-divider>
           <div class="right">
@@ -32,7 +32,7 @@
           </div>
           <div class="right-img">
             <img :src="img(details.id)" alt="head"/>
-<!--              <img src="src/assets/imgs/faces/6_1.jpg">-->
+<!--              <img src="/public/assets/imgs/faces/6_1.jpg">-->
           </div>
         </div>
       </div>
@@ -43,7 +43,7 @@
 <script setup>
 import { useRouter } from 'vue-router'
 import ProgressBar from '../echarts/progressBar.vue'
-import { dataInJs } from '~/assets/data/data.js'
+import { dataInJs } from '/public/assets/data/data.js'
 import { ref } from 'vue'
 
 const route = useRouter()
@@ -58,12 +58,12 @@ if(details.detection == 3){
   details.age = '未匹配到数据'
   details.degree = '未匹配到数据'
 }
-// const src = "src/assets/imgs/icons/det"+details.detection+".png"
+// const src = "/public/assets/imgs/icons/det"+details.detection+".png"
 
-const src = ref("src/assets/imgs/icons/det"+details.detection+"-1.png")
+const src = ref("/public/assets/imgs/icons/det"+details.detection+"-1.png")
 
 const img = (id) => {
-  const imgSrc = "src/assets/imgs/faces/" + id + ".jpg"
+  const imgSrc = "/public/assets/imgs/faces/" + id + ".jpg"
   return imgSrc
 }
 </script>
@@ -75,7 +75,7 @@ const img = (id) => {
 
   //font-family: '楷体', sans-serif;
 
-  //url("src/assets/imgs/bg.png") no-repeat
+  //url("/public/assets/imgs/bg.png") no-repeat
   background: rgba(0, 0, 0, 0.5);
 
   background-size: 100% 100%;
@@ -98,7 +98,7 @@ const img = (id) => {
     align-items: center;
 
     //background-color: rgba(255, 255, 255, 0.15);
-    background: #2C6584 url('src/assets/imgs/details_bg2.png');
+    background: #2C6584 url('/public/assets/imgs/details_bg2.png');
     background-size: cover;
     border-radius: 10px;
 
@@ -125,8 +125,8 @@ const img = (id) => {
         width: 96%;
         height: 90%;
         border-radius: 5px;
-        //url('src/assets/imgs/bg_0.jpg')
-        background: #2C6584 url('src/assets/imgs/details_bg2.png');
+        //url('/public/assets/imgs/bg_0.jpg')
+        background: #2C6584 url('/public/assets/imgs/details_bg2.png');
         background-size: cover;
         border: #6F6F63 2px solid;
 

@@ -3,7 +3,7 @@
     <div class="user-content">
       <div class="left">
         <div class="head">
-<!--          <img src="src/assets/imgs/faces/085807_before.jpg" alt="head" />-->
+<!--          <img src="/public/assets/imgs/faces/085807_before.jpg" alt="head" />-->
         </div>
         <div class="user-des">
 

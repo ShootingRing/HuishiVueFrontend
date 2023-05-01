@@ -76,7 +76,9 @@ v-model="dialogTableVisible"
 title="详细信息" 
 class="dialog"
 width="80%"
+center
 >
+<ProgressBar :id="itemShowing.id" id="prog" v-if="dialogTableVisible"></ProgressBar>
   <div class="dialog-container">
     <div class="info">
       <p>姓名：{{ itemShowing.name }}</p>
@@ -86,9 +88,10 @@ width="80%"
       <p>学位：{{ itemShowing.degree }}</p>
       <p>识别结果：{{ itemShowing.detection == 1? '认证成功':'认证失败' }}</p>
     </div>
+
       <img :src='img(itemShowing.id)' alt="head" class="left-img"/>
-      <img v-if="itemShowing.value.id == 10" src="src\assets\imgs\faces\zcy_face.png" alt="head" class="right-img"/>
-      <img v-else src="src\assets\imgs\faces\img_1.png" alt="head" class="right-img"/>
+      <img v-if="itemShowing.id == 10" src="/public/assets/imgs/faces/zcy_face.jpg" alt="head" class="right-img"/>
+      <img v-else src="/public/assets/imgs/faces/img_1.png" alt="head" class="right-img"/>
   </div>
 
 </el-dialog>
@@ -96,12 +99,13 @@ width="80%"
 
 <script setup>
 import { ref, onUnmounted, reactive} from "vue"
-import Ros from "~/components/echarts/attack-types.vue"
-import AttackTimes from "~/components/echarts/attack-times.vue"
-import Bar from '~/components/echarts/confidence-level.vue'
-import Cookie from "~/components/echarts/misdentification-and-attacks.vue"
-import router from "~/router/index.js"
-import {dataInJs} from "~/assets/data/data.js";
+import Ros from "/src/components/echarts/attack-types.vue"
+import AttackTimes from "/src/components/echarts/attack-times.vue"
+import Bar from '/src/components/echarts/confidence-level.vue'
+import Cookie from "/src/components/echarts/misdentification-and-attacks.vue"
+import ProgressBar from "/src/components/echarts/progressBar.vue"
+import router from "/src/router/index.js"
+import {dataInJs} from "/public/assets/data/data.js";
 
 /*中上表格数据*/
 const Dataset = ref(dataInJs())
@@ -109,10 +113,10 @@ const Dataset = ref(dataInJs())
 const loginData = ref(Array.from(Dataset.value.filter(item => item.detection == 1)));
 const attackData = ref(Array.from(Dataset.value.filter(item => item.detection == 2)));
 
-// const src = ref("src/assets/imgs/icons/det"+details.detection+"-1.png")
+// const src = ref("/public/assets/imgs/icons/det"+details.detection+"-1.png")
 
 const img = (id) => {
-  const imgSrc = "src/assets/imgs/faces/" + id + ".jpg"
+  const imgSrc = "/public/assets/imgs/faces/" + id + ".jpg"
   return imgSrc
 }
 
@@ -154,7 +158,7 @@ const handleClick = (row) => {
     width: 100%;
     height: 100%;
 
-    // background-image: url("src/assets/imgs/bg_0.jpg");
+    // background-image: url("/public/assets/imgs/bg_0.jpg");
 
     //font-family: '楷体', sans-serif;
   }
@@ -231,6 +235,11 @@ const handleClick = (row) => {
     flex-direction: row;
 
     justify-content: space-around;
+  }
+
+  .progresss-container {
+    width: 100%;
+    height: 100%;
   }
 
   .left-img {

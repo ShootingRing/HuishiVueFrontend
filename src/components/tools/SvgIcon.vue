@@ -1,4 +1,4 @@
-// src/components/svgIcon.vue
+// /src/components/svgIcon.vue
 <!--只需要给一个dom存放svg即可-->
 <template>
   <svg :class="svgClass" v-bind="$attrs" :style="{ color: color }">

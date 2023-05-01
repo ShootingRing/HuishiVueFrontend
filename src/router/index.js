@@ -1,21 +1,20 @@
 import {createRouter, createWebHashHistory} from 'vue-router'
 
-const home = () => import('~/components/home.vue')
-const login = () => import('~/components/login.vue')
-const notFound = () => import('~/components/404.vue')
+const home = () => import('/src/components/home.vue')
+const login = () => import('/src/components/login.vue')
+const notFound = () => import('/src/components/404.vue')
 
-const description = () => import('~/components/main/description.vue')
-const information = () => import('~/components/main/information.vue')
-const management = () => import('~/components/main/management.vue')
-const detection = () => import('~/components/main/detection.vue')
-const user = () => import('~/components/main/user.vue')
+const description = () => import('/src/components/main/description.vue')
+const information = () => import('/src/components/main/information.vue')
+const management = () => import('/src/components/main/management.vue')
+const detection = () => import('/src/components/main/detection.vue')
+const user = () => import('/src/components/main/user.vue')
 
-const screen = () => import('~/components/screen/screen.vue')
-const details = () => import('~/components/main/details.vue')
+const screen = () => import('/src/components/screen/screen.vue')
 
-// const ros = () => import('~/components/echarts/ros.vue')
-const Progress = () => import('~/components/echarts/progressBar.vue')
-const info = () => import('~/components/main/expInfo.vue')
+// const ros = () => import('/src/components/echarts/ros.vue')
+const Progress = () => import('/src/components/echarts/progressBar.vue')
+const info = () => import('/src/components/main/expInfo.vue')
 
 const routes = [
     {

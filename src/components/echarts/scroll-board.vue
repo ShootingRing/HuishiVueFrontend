@@ -7,17 +7,17 @@
 </template>
 <script lang="ts" setup>
 import type { ScrollBoard } from '@kjgl77/datav-vue3'
-import {dataInJs} from "~/assets/data/data.js";
+import {dataInJs} from "/public/assets/data/data.js";
 import { ref, reactive } from 'vue'
 
 
 const img = (id) => {
-  const imgSrc = "src/assets/imgs/faces/" + id + ".jpg"
+  const imgSrc = "/public/assets/imgs/faces/" + id + ".jpg"
   return '<img alt="head" src='+imgSrc+' style="width: 40px; margin-top: 15px; opacity: 0.8;"/>'
 }
 
-const icon2 = '<img alt="det2" src="src/assets/imgs/icons/det2-1.png" style="width: 35px; margin-top: 15px; opacity: 0.8;"/>'
-const icon3 = '<img alt="det3" src="src/assets/imgs/icons/det3-1.png" style="width: 35px; margin-top: 15px; opacity: 0.8;"/>'
+const icon2 = '<img alt="det2" src="/public/assets/imgs/icons/det2-1.png" style="width: 35px; margin-top: 15px; opacity: 0.8;"/>'
+const icon3 = '<img alt="det3" src="/public/assets/imgs/icons/det3-1.png" style="width: 35px; margin-top: 15px; opacity: 0.8;"/>'
 
 const data = dataInJs()
 

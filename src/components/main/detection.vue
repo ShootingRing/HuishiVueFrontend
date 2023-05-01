@@ -6,12 +6,12 @@
     <div class="detect-img">
       <el-card :body-style="{ padding: '0px' }">
         <img
-          src="src/icons/svg/face_not_recognition.svg"
+          src="/src/icons/svg/face_not_recognition.svg"
           class="image"
           v-if="!success && !isScaning"
         />
         <video class="left-video" v-else autoplay>
-          <source src="src/assets/videos/ydy_keys.mkv" type="video/mp4">
+          <source src="/public/assets/videos/ydy_keys.mkv" type="video/mp4">
         </video>
         <div style="padding: 0px; text-align: center; margin-bottom: 10px;">
           <span>人脸关键点检测</span>
@@ -19,12 +19,12 @@
       </el-card>
       <el-card :body-style="{ padding: '0px' }">
         <img
-          src="src/icons/svg/face_not_recognition.svg"
+          src="/src/icons/svg/face_not_recognition.svg"
           class="image"
           v-if="!success && !isScaning"
         />
         <video class="left-video" v-else autoplay>
-          <source src="src/assets/videos/ydy_split.mkv" type="video/mp4">
+          <source src="/public/assets/videos/ydy_split.mkv" type="video/mp4">
         </video>
         <div style="padding: 0px; text-align: center; margin-bottom: 10px;">
           <span>人像精细分割</span>
@@ -34,11 +34,11 @@
     <div class="detect">
       <div class="detect-circle">
         <video class="video" v-if="!success && isScaning" autoplay>
-          <source src="src/assets/videos/ydy.mkv" type="video/mp4">
+          <source src="/public/assets/videos/ydy.mkv" type="video/mp4">
         </video>
         <img
         v-else 
-        class="video-svg" src="src/icons/svg/face_recognition.svg" alt="recognition_svg"/>
+        class="video-svg" src="/src/icons/svg/face_recognition.svg" alt="recognition_svg"/>
       </div>
       <el-button class="start-button" @click="handleScan" type="primary">
         开始识别
@@ -51,12 +51,12 @@
         flexDirection: 'column'
         }">
         <img
-          src="src/icons/svg/face_not_recognition.svg"
+          src="/src/icons/svg/face_not_recognition.svg"
           class="image"
           v-if="!success"
         />
         <img
-          src="src\assets\imgs\faces\face_ydy.jpg"
+          src="/public/assets\imgs\faces\face_ydy.jpg"
           class="image-face"
           v-else
         />
@@ -75,7 +75,7 @@
 
 <script setup>
 import {defineEmits, ref} from "vue"
-import {dataInJs} from "~/assets/data/data.js"
+import {dataInJs} from "/public/assets/data/data.js"
 import { saveAs } from 'file-saver';
 import axios from "axios";
 import { ElMessage } from 'element-plus'

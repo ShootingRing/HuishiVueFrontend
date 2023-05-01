@@ -18,7 +18,7 @@
 
 <script setup>
 
-import router from "~/router/index.js";
+import router from "/src/router/index.js";
 
 function handleClick() {
   console.log('click the to login button');

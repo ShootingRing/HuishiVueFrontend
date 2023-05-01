@@ -20,7 +20,7 @@
 
           </div>
         </div>
-        <img style="margin-left: 5px; margin-top: 50px; opacity:1.0;height: 330px;" src="src/assets/imgs/ciyun4.png" alt="" />
+        <img style="margin-left: 5px; margin-top: 50px; opacity:1.0;height: 330px;" src="/public/assets/imgs/ciyun4.png" alt="" />
       </div>
     </div>
   </div>

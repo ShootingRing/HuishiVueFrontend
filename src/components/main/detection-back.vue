@@ -4,16 +4,16 @@
             <div class="top">
                 <div class="left" key="1">
                     <div class="key-point panel">
-                        <!--          <img src="src/assets/imgs/faces/face_after.jpg" alt="" class="key-img" v-if="success">-->
+                        <!--          <img src="/public/assets/imgs/faces/face_after.jpg" alt="" class="key-img" v-if="success">-->
                         <video id="video" v-if="success || isScaning" autoplay>
-                            <source src="src/assets/videos/1_keys.mkv" type="video/mp4">
+                            <source src="/public/assets/videos/1_keys.mkv" type="video/mp4">
                         </video>
                         <p v-if="success || isScaning">人脸关键点检测</p>
                     </div>
                     <div class="hit-map panel">
-                        <!--          <img src="src/assets/imgs/faces/picwish.jpg" alt="" class="hit-img" v-if="success">-->
+                        <!--          <img src="/public/assets/imgs/faces/picwish.jpg" alt="" class="hit-img" v-if="success">-->
                         <video id="video" v-if="success || isScaning" autoplay>
-                            <source src="src/assets/videos/1_split.mkv" type="video/mp4">
+                            <source src="/public/assets/videos/1_split.mkv" type="video/mp4">
                         </video>
                         <p v-if="success || isScaning">人像精细分割</p>
                     </div>
@@ -21,12 +21,12 @@
                 <div class="scan" key="2">
                     <!--        <div class="scan-line" v-if="!success"></div>-->
                     <video id="video" v-if="isScaning" autoplay>
-                        <source src="src/assets/videos/Test1.mkv" type="video/mp4">
+                        <source src="/public/assets/videos/Test1.mkv" type="video/mp4">
                     </video>
                     <!--        <video v-if="isScaning" autoplay muted controls>-->
-                    <!--          <source src="src/assets/videos/2023-02-07 23-01-06.mkv" type="video/mp4">-->
+                    <!--          <source src="/public/assets/videos/2023-02-07 23-01-06.mkv" type="video/mp4">-->
                     <!--        </video>-->
-                    <img src="src/assets/imgs/scan_border.png" alt="scan" class="scan-img" v-if="!success & !isScaning"/>
+                    <img src="/public/assets/imgs/scan_border.png" alt="scan" class="scan-img" v-if="!success & !isScaning"/>
                     <div class="right-hint" v-else-if="success & !isScaning">
                         <svg t="1680153388766" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
                              p-id="5210"
@@ -46,8 +46,8 @@
                          v-loading="isScaning"
                          element-loading-background="rgba(255, 255, 255, 0.2)"
                     >
-                        <!--          <img src="src/assets/imgs/faces/085807_before.jpg" alt="" class="head" v-if="success"/>-->
-                        <img src="src/assets/imgs/faces/img.png" alt="" class="head" v-if="success"/>
+                        <!--          <img src="/public/assets/imgs/faces/085807_before.jpg" alt="" class="head" v-if="success"/>-->
+                        <img src="/public/assets/imgs/faces/img.png" alt="" class="head" v-if="success"/>
                         <div class="info" v-if="success">
                             <p class="name item"> 姓名： {{details.name}} </p>
                             <el-divider direction="horizontal"></el-divider>
@@ -67,7 +67,7 @@
         <div class="button-container">
           <img
               class="button"
-              src="src/assets/imgs/button_active.png"
+              src="/public/assets/imgs/button_active.png"
               alt="button"
               @click="handleScan"
               v-if="isHovering"
@@ -76,7 +76,7 @@
           />
           <img
               class="button"
-              src="src/assets/imgs/button.png"
+              src="/public/assets/imgs/button.png"
               alt="button"
               @click="handleScan"
               v-else
@@ -90,7 +90,7 @@
   
   <script setup>
   import {defineEmits, ref} from "vue"
-  import {dataInJs} from "~/assets/data/data.js"
+  import {dataInJs} from "/public/assets/data/data.js"
   import { saveAs } from 'file-saver';
   import axios from "axios";
   
@@ -180,7 +180,7 @@
     //     .getUserMedia({ video: true })
     //     .then((s) => {
     //       const video = document.getElementById('video');
-    //       video.srcObject = "G:\\DeepFake_FaceRecognition (3)\\DeepFake_FaceRecognition\\results\\Test.mp4";
+    //       video.srcObject = "G:\DeepFake_FaceRecognition (3)\DeepFake_FaceRecognition\results\Test.mp4";
     //       video.play();
     //       stream = s;
     //       startRecording();
@@ -203,9 +203,9 @@
   }
   
   
-  const src = ref("src/assets/imgs/icons/det"+details.detection+"-1.png")
-  const srcLeft = ref("src/assets/imgs/faces/right_scan.jpg")
-  const srcRight = ref("src/assets/imgs/faces/right_assets.jpg")
+  const src = ref("/public/assets/imgs/icons/det"+details.detection+"-1.png")
+  const srcLeft = ref("/public/assets/imgs/faces/right_scan.jpg")
+  const srcRight = ref("/public/assets/imgs/faces/right_assets.jpg")
   
   
   const detailsClick = () => {
@@ -493,7 +493,7 @@
         width: 66%;
         height: 90%;
         border-radius: 5px;
-        //url('src/assets/imgs/bg_0.jpg')
+        //url('/public/assets/imgs/bg_0.jpg')
         background: #2C6584FE;
         background-size: cover;
         border: #6F6F63 2px solid;

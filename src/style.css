@@ -105,7 +105,7 @@ button:focus-visible {
 
   border: 1px solid rgba(25, 186, 139, 0.2);
 
-  background: url("src/assets/imgs/chartBack.png") no-repeat rgba(255, 255, 255, 0.04);
+  background: url("/public/assets/imgs/chartBack.png") no-repeat rgba(255, 255, 255, 0.04);
 
 }
 
@@ -320,7 +320,7 @@ h2 {
   position: relative;
   justify-content: start;
   align-items: flex-end;
-  background: url(src/assets/imgs/header/mountain.jpg) no-repeat
+  background: url(/public/assets/imgs/header/mountain.jpg) no-repeat
     center/cover;
 }
 

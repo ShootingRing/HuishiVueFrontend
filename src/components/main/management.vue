@@ -21,7 +21,7 @@
 </template>
 
 <script setup>
-import router from "~/router/index.js";
+import router from "/src/router/index.js";
 import { ref } from "vue";
 /**
  * 无，唯一搞过像样的项目就是正在做的服创项目

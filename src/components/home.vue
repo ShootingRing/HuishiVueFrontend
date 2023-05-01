@@ -26,55 +26,55 @@
                 @select="handleSelect"
             >
               <el-menu-item index="1" class="logo-in-aside">
-               <img class="title_logo" src="src/assets/imgs/Title/Title_font1.png"  alt="title"/>
+               <img class="title_logo" src="/public/assets/imgs/Title/Title_font1.png"  alt="title"/>
               </el-menu-item>
               <el-menu-item index="2">
-                <img src="src/icons/svg/introduce_hover.svg" alt="introduce" class="svg-icon" v-if="isHovering" />
-                <img src="src/icons/svg/introduce.svg" alt="introduce" class="svg-icon" v-else />
+                <img src="/src/icons/svg/introduce_hover.svg" alt="introduce" class="svg-icon" v-if="isHovering" />
+                <img src="/src/icons/svg/introduce.svg" alt="introduce" class="svg-icon" v-else />
                 <span class="des">项目介绍</span>
               </el-menu-item>
               <el-menu-item index="5">
                 <div>
                   <!-- <scan-alt /> -->
-                  <img src="src/icons/svg/face_hover.svg" alt="face" class="svg-icon" v-if="isHovering">
-                  <img src="src/icons/svg/face.svg" alt="face" class="svg-icon" v-else>
+                  <img src="/src/icons/svg/face_hover.svg" alt="face" class="svg-icon" v-if="isHovering">
+                  <img src="/src/icons/svg/face.svg" alt="face" class="svg-icon" v-else>
                 </div>
                 <span class="face">人脸识别</span>
               </el-menu-item>
               <el-menu-item index="7">
                 <div v-if="access >= 1">
-                  <img src="src/icons/svg/screen_hover.svg" alt="face" class="svg-icon" v-if="isHovering">
-                  <img src="src/icons/svg/screen.svg" alt="face" class="svg-icon" v-else>
+                  <img src="/src/icons/svg/screen_hover.svg" alt="face" class="svg-icon" v-if="isHovering">
+                  <img src="/src/icons/svg/screen.svg" alt="face" class="svg-icon" v-else>
                 </div>
                 <div v-else>
-                  <img src="src/icons/svg/lock.svg" alt="face" class="svg-icon">
+                  <img src="/src/icons/svg/lock.svg" alt="face" class="svg-icon">
                 </div>
                 <span class="data">登录数据</span>
               </el-menu-item>
               <el-menu-item index="3" v-bind:class="{'disabled' : access < 1}">
                 <div v-if="access >= 1">
-                  <img src="src/icons/svg/notice_hover.svg" alt="notice" class="svg-icon" v-if="isHovering">
-                  <img src="src/icons/svg/notice.svg" alt="notice" class="svg-icon" v-else>
+                  <img src="/src/icons/svg/notice_hover.svg" alt="notice" class="svg-icon" v-if="isHovering">
+                  <img src="/src/icons/svg/notice.svg" alt="notice" class="svg-icon" v-else>
                 </div>
                 <div v-else>
-                  <img src="src/icons/svg/lock.svg" alt="face" class="svg-icon">
+                  <img src="/src/icons/svg/lock.svg" alt="face" class="svg-icon">
                 </div>
                 <span class="notice">内部通知</span>
               </el-menu-item>
               <el-menu-item index="4" v-bind:class="{'disabled' : access < 1}">
                 <div v-if="access >= 1">
-                  <img src="src/icons/svg/people_hover.svg" alt="people" class="svg-icon" v-if="isHovering">
-                  <img src="src/icons/svg/people.svg" alt="people" class="svg-icon" v-else>
+                  <img src="/src/icons/svg/people_hover.svg" alt="people" class="svg-icon" v-if="isHovering">
+                  <img src="/src/icons/svg/people.svg" alt="people" class="svg-icon" v-else>
                 </div>
                 <div v-else>
-                  <img src="src/icons/svg/lock.svg" alt="face" class="svg-icon">
+                  <img src="/src/icons/svg/lock.svg" alt="face" class="svg-icon">
                 </div>
                 <span class="manage">项目管理</span>
               </el-menu-item>
               <el-menu-item index="8" v-bind:class="{'disabled' : access < 1}">
                 <div>
-                  <img src="src/icons/svg/logout_hover.svg" alt="logout" class="svg-icon" v-if="isHovering">
-                  <img src="src/icons/svg/logout.svg" alt="logout" class="svg-icon" v-else>
+                  <img src="/src/icons/svg/logout_hover.svg" alt="logout" class="svg-icon" v-if="isHovering">
+                  <img src="/src/icons/svg/logout.svg" alt="logout" class="svg-icon" v-else>
                 </div>
                 <span class="logout">退出登录</span>
               </el-menu-item>
@@ -92,9 +92,9 @@
 
 <script setup>
   import { ref, defineEmits } from 'vue'
-  import router from "~/router/index.js"
+  import router from "/src/router/index.js"
   import { ElMessageBox, ElMessage } from 'element-plus'
-  import { dataInJs } from "~/assets/data/data.js"
+  import { dataInJs } from "/public/assets/data/data.js"
 
 
 
@@ -117,7 +117,7 @@
     details.age = '未匹配到数据'
     details.degree = '未匹配到数据'
   }
-  // const src = "src/assets/imgs/icons/det"+details.detection+".png"
+  // const src = "/public/assets/imgs/icons/det"+details.detection+".png"
 
   const myAlert = () => {
     ElMessageBox.confirm(
@@ -218,7 +218,7 @@
   width: 100%;
   height: 100%;
 
-  // background: url("src/assets/imgs/index_bg.png") no-repeat;
+  // background: url("/public/assets/imgs/index_bg.png") no-repeat;
   background-size: cover;
 
   // overflow: hidden;

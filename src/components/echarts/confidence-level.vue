@@ -7,7 +7,7 @@
 <script setup>
 import * as echarts from 'echarts'
 import {onMounted, onUnmounted, ref} from "vue"
-import { dataInJs } from '~/assets/data/data.js'
+import { dataInJs } from '/public/assets/data/data.js'
 
 const colorList = [
   new echarts.graphic.LinearGradient(
@@ -88,8 +88,8 @@ const dataset2 = ref([
 const dataset3 = ref([
   {value: 83, itemStyle: {color: colorList[2]}},
   {value: 85, itemStyle: {color: colorList[2]}},
-  {value: 63, itemStyle: {color: colorList[2]}},
-  {value: 86, itemStyle: {color: colorList[2]}},
+  {value: 81, itemStyle: {color: colorList[2]}},
+  {value: 5, itemStyle: {color: colorList[2]}},
 ])
 
 function setChart() {
@@ -107,7 +107,7 @@ function setChart() {
     },
     yAxis: {
       type: 'value',
-      min: 60,
+      min: 0,
       max: 100,
       axisLabel: {
         color: 'black',
@@ -163,18 +163,34 @@ onMounted( () => {
 
 const length = ref(5)
 
+var attack = -1;
+
 const interval = setInterval(() => {
+  attack = -1;
 
   if(length.value >= 12) {
     length.value = 0
   }
   users.push(PreUsers[length.value])//循环添加数据
+  if(typeof(PreUsers[length.value+1])!="undefined" && typeof(PreUsers[length.value+1].split(' ')[1])!="undefined")
+    switch(PreUsers[length.value+1].split(' ')[1]){
+      case '视频重放':
+      case '打印照片':
+        attack = 0
+        break
+      case '对抗样本':
+        attack = 1
+        break
+      case '深度伪造':
+        attack = 2
+        break
+    }
 
-  dataset.value.push({value: Math.floor(Math.random() * 20) + 80, itemStyle: {color: colorList[0]}})
+  dataset.value.push({value: attack==0? 5 :(Math.floor(Math.random() * 20) + 80), itemStyle: {color: colorList[0]}})
 
-  dataset2.value.push({value: Math.floor(Math.random() * 20) + 80, itemStyle: {color: colorList[1]}})
+  dataset2.value.push({value: attack==1? 5 :(Math.floor(Math.random() * 20) + 80), itemStyle: {color: colorList[1]}})
 
-  dataset3.value.push({value: Math.floor(Math.random() * 20) + 80, itemStyle: {color: colorList[2]}})
+  dataset3.value.push({value: attack==2? 5 :(Math.floor(Math.random() * 20) + 80), itemStyle: {color: colorList[2]}})
 
   if(users.length >= 5){
     //delete the first 5 elements
